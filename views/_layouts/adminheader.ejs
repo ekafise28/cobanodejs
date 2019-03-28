@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+      <!-- fav and touch icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon.icog">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/images/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+
+  <title>Yoeda Art</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css" />
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
+
+   <link href="//s.w.org/wp-includes/css/dashicons.css?20150710" rel="stylesheet" type="text/css">
+  <title>
+    <%=  %>
+  </title>
+   
+</head>
+<body>
+<!-- nitip di header_bu.ejs -->
+ <header>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-red"> <!-- fixed-top -->
+  
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+       <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto" style="margin-right: 10px;">
+            <% pages.forEach(function(page){ %>
+                  <%  if (page.slug == "home") { %> 
+                   <li class="nav-item">
+                    <a class="btn btn-outline-secondary my-2 my-sm-0" href="/admin/pages"> <b><%= page.title %></b></a>
+                  </li>
+                  <% } else {%>
+                   <li class="nav-item">
+                  <a class="btn btn-outline-secondary my-2 my-sm-0" href="/<%= page.slug %>"><b><%= page.title %></b></a>
+                    </li>
+                    <% } %>
+                    <% }); %>
+                  <% if (user) { %>
+                   <li class="nav-item">
+                    <a class="btn btn-outline-secondary my-2 my-sm-0" href="/users/logout">Hi, <%= user.username %> ( logout )</a>
+                  </li>
+                  <% } else {%>
+                   <li class="nav-item">
+                    <a class="btn btn-outline-secondary my-2 my-sm-0" href="/">Home</a>
+                    </li>
+                     <li class="nav-item">
+                    <a class="btn btn-outline-secondary my-2 my-sm-0" href="/users/register">Register</a>
+                    </li>
+                     <li class="nav-item">
+                    <a class="btn btn-outline-secondary my-2 my-sm-0" href="/users/login">Log in</a>
+                    </li>
+                  <% } %>
+                    <% if (user && (user.admin == 1 || user.admin == 2 ) ) { %>
+
+                    <div class="dropdown show">
+                      <a class="btn btn-outline-secondary my-2 my-sm-0" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Admin
+                      </a>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/admin/categories">Category</a>
+                        <a class="dropdown-item" href="/admin/products/<%= user._id %>">Product</a>
+                        <a class="dropdown-item" href="/admin/accounts/<%= user._id %>">User</a>
+                        <a class="dropdown-item" href="/admin/chats/<%= user.email %>">Chat</a>
+                      </div>
+                    </div>
+
+                  <% }%>                   
+                   <li>
+                  </li>
+        
+         <li>
+                        <a href="#" data-toggle="dropdown" class="btn btn-outline-secondary my-2 my-sm-0">Filter<b class="caret"></b></a>
+                        <ul class="dropdown-menu" >
+                            <li>
+                            <input id="caritext" class="form-control mr-sm-2 btn-outline-secondary my-2 my-sm-0" type="text" placeholder="Kata Pencarian" aria-label="Search">
+                            <button class="btn btn-outline-secondary my-2 my-sm-0" type="button" onClick="" id="" value="">Seluruh Indonesia</button>
+                          
+                           <input id="caritext" class="form-control mr-sm-2 btn-outline-secondary my-2 my-sm-0" type="text" placeholder="Pilih Provinsi" aria-label="Search">
+                           <input id="caritext" class="form-control mr-sm-2 btn-outline-secondary my-2 my-sm-0" type="text" placeholder="Pilih Kota" aria-label="Search">    
+                           <input id="caritext" class="form-control mr-sm-2 btn-outline-secondary my-2 my-sm-0" type="text" placeholder="Kategori" aria-label="Search">    
+                           
+                            <button class="btn btn-outline-secondary my-2 my-sm-0" type="button" onClick="searching()" id="cari" value="Cari">Cari</button>
+                            <button class="btn btn-outline-secondary my-2 my-sm-0" type="button" onClick="" id="batal" value="Batal">Batal</button>
+                            </li>
+                        </ul>
+                    </li>
+        </ul>
+
+        <form class="form-inline mt-2 mt-md-0" id="forma1">
+        <input id="caritext" class="form-control mr-sm-2 my-2 my-sm-0" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-secondary my-2 my-sm-0" type="button" onClick="searching()" id="cari" value="Cari"><i class="fas fa-search"></i></button>
+      </form>
+       
+      </div>
+    </div>
+  </nav>
+</header>
+
+  <div class="text-right">
+      <script type="text/javascript">
+                function searching(){
+                        var n1 = document.getElementById("caritext").value;
+                        location.href =  "/search/" + n1 ;
+                  
+                };
+      </script>
+  </div>
+
+  <div class="container-fluid text-white" style="background-color:#FF0000;">
+        <div  style="margin-bottom: 20px;">
+            <img alt="" src="/images/logo-yoedaart.png" style="height:125px;margin-top: 20px;margin-left: 40px;">
+        </div>
+    </div>
+  </div>
+
+   <div class="col-lg-8 mx-auto">  
+    <ul class="nav nav-tabs">
+      <li><a href="/admin/pages">Home</a></li>
+      <li><a href="/admin/products/%>">Iklan</a></li>
+      <li><a href="/admin/accounts/<%= user._id %>">User</a></li>
+      <li><a href="/admin/chats/<%= user.email %>">Chat</a></li>
+      <li><a href="#">Setting</a></li>
+    </ul>
+  </div>
+
+   
+        <%- messages('messages', locals) %>
+        <% if (errors) {%>
+        <% errors.forEach(function(error) { %>
+        <div class="alert alert-danger col-lg-8 mx-auto" style="text-align:center;">
+          <%= error.msg %>
+        </div>
+        <% });%>
+        <% }%>
+   
+  </div>

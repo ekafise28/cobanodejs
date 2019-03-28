@@ -1,0 +1,39 @@
+<% include _layouts/header %>
+<style>
+.hero {
+  width:960px;
+  margin:1rem auto;
+  position: relative;
+}
+
+.text {
+  background:rgba(255,255,255,0.5);
+  position: center;
+  top:50%;
+  left:0;
+  padding:1rem;
+  transform:translateY(-50%);
+}
+  
+/* test */
+</style>
+  <div class="container">
+    <div class="row mb-5">
+      <% categories.forEach(function(c){ %>
+    <div class="hero col-md-4 text-center  my-2 my-sm-0">     
+      <div class="box1">
+					<a class="img-link img-wrap w_hover"  href="/products/<%= c.slug %>"> 
+          <img  alt="" src="/cat_images/<%= c.id %>/<%= c.image %>" style="width: 300px;height: auto;margin-top: 20px;"><span class="link-icon"></span></a> 
+      <div class="">
+        <div class="d-flex flex-column text-center" style="margin-top: 15px;">
+              <a class="text-dark h5"  href="/products/<%= c.slug %>"><u><b><%= c.title %></b></u></a>
+              <a class="text-secondary h5"  href="/products/<%= c.slug %>"><b><%= c.judul %></b></a>
+              <a class="text-secondary h5"  href="/products/<%= c.slug %>"><b><%= c.judul2 %></b></a>
+        </div>
+      </div>
+      </div>
+    </div>
+     <% }); %>
+</div>
+
+<% include _layouts/footer %>

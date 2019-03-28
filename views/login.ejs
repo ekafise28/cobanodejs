@@ -1,0 +1,46 @@
+<% include _layouts/header %>
+
+  <div class="col-lg-4 mx-auto">
+    <div class="jumbotron" style="text-align:center;">
+        <h1><b><%= title %></b></h1>  
+    </div>
+
+<form method="post" action="/users/login">
+
+  <div class="form-group">
+    <label><b>Username</b></label>
+    <input type="text" name="username" class="form-control" placeholder="Username">
+  </div>
+
+  <div class="form-group">
+    <label><b>Password</b></label>
+    <input type="password" name="password" class="form-control" placeholder="Password">
+  </div>
+
+  <div class="form-group">
+    	          <input name="user" type="checkbox" id="user-remember" class="checkbox marginleft10" checked="checked">
+						   	<label class="marginleft10 lheight20" for="user-remember">Biarkan saya tetap masuk</label>
+  </div>
+
+  <div class="fblock clr tcenter margintop7">
+					<div class="label fleft c000 fbold"></div>
+					<div class="area with-button">
+						
+						<p class="fright">
+							<small> 
+								<a class="register-link link" href="/users/register">
+									<span>DAFTAR</span>
+								</a>
+							</small>
+						</p>
+					</div>
+
+          		<p class="tcenter marginbott50 color-4">Dengan log in Anda menerima <a href="#" class="link" target="_blank"><span>Syarat dan Ketentuan</span></a> youdaart.com</p>
+				</div>
+
+  <button type="submit" class="btn btn-primary">Log in</button>
+</form>
+
+</div>
+
+<% include _layouts/footer %>

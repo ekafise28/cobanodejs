@@ -1,0 +1,52 @@
+<% include _layouts/header %>
+
+<div class="row products">
+
+  <!--<% products.forEach(function(p){ %>
+  <div class="col-xs-12 col-md-4 p">
+    <a class="pa" href="/products/<%= p.category %>/<%= p.slug %>">
+      <img class="pimage" src="/product_images/<%= p.id %>/<%= p.image %>" alt="">
+    </a>
+    <h3>
+      <%= p.title %>
+    </h3>
+    <h4>Rp.
+      <% parseFloat(p.price).toFixed(2) %>
+      <%= p.price %>
+    </h4>
+    <a class="vd" href="/products/<%= p.category %>/<%= p.slug %>">View Details</a>
+  </div>
+  <% }); %>
+</div>-->
+
+
+<main role="main" class="container">
+    <div class="row mb-2">
+       <% products.forEach(function(p){ %>
+            <div class="col-md-6">     
+                    <div class="card">
+                            <div class="d-flex flex-column text-center">
+                            <strong class="d-inline-block mb-2 text-primary"><%= p.title %>, Category</strong>
+                          </div>
+                            <a class="pa" href="/products/<%= p.category %>/<%= p.slug %>">
+                               <img class="pimage" src="/product_images/<%= p.id %>/<%= p.image %>" alt="">
+                            </a>
+                         
+                          <div class="card-body d-flex flex-column align-items-start">
+                                <div class="mb-1 text-muted">descripton, Nov 12</div>
+                                <p class="card-text mb-auto"> <h4>Rp.<% parseFloat(p.price).toFixed(2) %> <%= p.price %></h4></p>
+                                <a href="/products/<%= p.category %>/<%= p.slug %>">View Details</a>
+                              </div>
+                    </div>
+            </div>  
+     <% }); %>
+        
+      </div>
+      
+     
+     
+</main>
+
+
+
+<% include _layouts/footer %>

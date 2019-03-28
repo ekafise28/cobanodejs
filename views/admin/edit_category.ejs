@@ -1,0 +1,69 @@
+<%- include('../_layouts/adminheader') %>
+
+   <div class="ibox-content col-lg-8 mx-auto">
+    <div><a href="/admin/categories" class="btn btn-primary">List Categories</a></div>
+    <br />
+    <div class="jumbotron" style="text-align:center;">
+        <h1><b>Edit Category</b></h1>  
+    </div>
+
+
+<form method="POST" action="/admin/categories/edit-category/<%= id %>">
+
+  <div class="col form-group">
+    <label for=""><b>JUDUL</b></label>
+    <input type="text" class="form-control" name="judul" value="<%= judul %>" placeholder="Judul">
+  </div>
+  <div class="col form-group">
+    <label for=""><b>TITLE</b></label>
+    <input type="text" class="form-control" name="title" value="<%= title %>" placeholder="Title">
+  </div>
+  <div class="form-group">
+    <label class="col-lg-3"><b>ACTIVE</b></label>
+    <select class="form-group col-lg-2" name="activeflag">
+      <option value="1">Yes</option>
+      <option value="0">No</option>
+    </select>
+  </div>
+
+    
+  <div class="col form-group">
+    <label for=""><b>UPLOAD IMAGE</b></label>
+    <input type="file" class="form-control" name="image" id="img">
+    <img src="#" id="imgPreview" alt="">
+  </div>
+
+  <div class="col form-group">
+    <label for=""><b>CURRENT IMAGE</b></label>
+    <p>
+      <% if (image == "") { %>
+      <img class="w-25 p-3 mx-auto" id="noimage" src="/images/noimage.png" alt="">
+      <% } else {%>
+      <img class="w-25 p-3 mx-auto" id="noimage" src="/cat_images/<%= id %>/<%= image %>" alt="">
+      <% } %>
+    </p>
+    </div>
+
+ <input type="hidden" name="pimage" value="<%= image %>">
+  <button class="btn btn-primary">Submit</button>
+</form>
+<script>
+
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $("#imgPreview").attr('src', e.target.result).width(100).height(100);
+      }
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $("#img").change(function () {
+    readURL(this);
+  });
+
+</script>
+<%- include('../_layouts/adminfooter') %>

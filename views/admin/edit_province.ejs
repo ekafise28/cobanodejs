@@ -1,0 +1,26 @@
+<%- include('../_layouts/adminheader') %>
+
+<br><br>
+
+<h2 class="page-title">Edit a Province</h2>
+<a href="/admin/provinces" class="btn btn-primary">Back to all Provinces</a>
+
+<br><br>
+
+<form method="POST" action="/admin/provinces/edit-province/<%= id %>">
+
+  <div class="form-group">
+    <label for="">Name</label>
+    <input type="text" class="form-control" name="title" value="<%= title %>" placeholder="Title">
+    <label for="">Active</label>
+    <select class="form-group" name="activeflag">
+      <option value="1">Yes</option>
+      <option value="0">No</option>
+    </select>
+  </div>
+
+  <button class="btn btn-primary">Submit</button>
+
+</form>
+
+<%- include('../_layouts/adminfooter') %>

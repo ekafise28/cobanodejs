@@ -1,0 +1,206 @@
+<%- include('../_layouts/adminheader') %>
+
+<div class="ibox-content col-lg-8 mx-auto">
+<div class="jumbotron" style="text-align:center;margin-bottom: 10px;">
+        <h1><b>Edit Products</b></h1>  
+  </div>
+<a href="/admin/products" class="btn btn-primary">Back to all products</a>
+<br><br>
+
+<form method="post" action="/admin/products/edit-product/<%= id %>" enctype="multipart/form-data">
+
+  <div class="form-group">
+    <label for="">Category</label>
+    <select name="category" class="form-control">
+      <% categories.forEach(function(cat){ %>
+      <option value="<%= cat.slug %>" <% if (cat.slug==category) { %>
+        selected="selected"
+        <% } %>
+        >
+        <%= cat.title %>
+      </option>
+      <% }); %>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="">Title</label>
+    <input type="text" class="form-control" name="title" value="<%= title %>" placeholder="Title">
+  </div>
+
+  <div class="form-group">
+    <label for="">seniman</label>
+    <input type="text" class="form-control" name="seniman" value="<%= seniman %>" placeholder="seniman">
+  </div>
+
+
+  <div class="form-group">
+    <label for="">Media</label>
+    <input type="text" class="form-control" name="media" value="<%= media %>" placeholder="Media">
+  </div>
+
+  <div class="form-group">
+    <label for="">Description</label>
+    <textarea name="desc" class="form-control" cols="30" rows="10" placeholder="Description"><%= desc %></textarea>
+  </div>
+  <div class="form-group">
+    <label for="">Year</label>
+    <input type="text" class="form-control" name="tahun" value="<%= tahun %>" placeholder="Tahun">
+  </div>
+
+  <div class="form-group">
+    <label for="">Size</label>
+    <input type="text" class="form-control" name="ukuran" value="<%= ukuran %>" placeholder="Size">
+  </div>
+
+  <div class="form-group">
+    <label for="">Price</label>
+    <input type="text" class="form-control" name="price" value="<%= price %>" placeholder="Price">
+  </div>
+
+  <div class="form-group">
+    <label for="">Discount</label>
+    <input type="text" class="form-control" name="discount" value="<%= discount %>" placeholder="Discount">
+  </div>
+
+   <div class="form-group">
+    <label for="">Negotiable</label>
+     <select class="form-group" name="negotiable">
+        <option value="1">Yes</option>
+        <option value="0>">No</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="">Seller Name</label>
+    <input type="text" class="form-control" name="sellername" value="<%= sellername %>" placeholder="Seller Name">
+  </div>
+
+  <div class="form-group">
+    <label for="">Gallery</label>
+    <input type="text" class="form-control" name="galery" value="<%= galery %>" placeholder="Galery Name">
+  </div>
+
+  <div class="form-group">
+    <label for="">Phone</label>
+    <input type="text" class="form-control" name="phone" value="<%= phone %>" placeholder="Phone Number">
+  </div>
+
+  <div class="form-group">
+    <label for="">Sms</label>
+    <input type="text" class="form-control" name="sms" value="<%= sms %>" placeholder="SMS">
+  </div>  
+ 
+  <div class="form-group">
+    <label for="">Whatsapp</label>
+    <input type="text" class="form-control" name="wa" value="<%= wa %>" placeholder="Whastapp">
+  </div>  
+  <div class="form-group">
+    <label for="">Address</label>
+    <input type="text" class="form-control" name="address" value="<%= address %>" placeholder="Address">
+  </div>  
+
+  <div class="form-group">
+    <label for="">Province</label>
+    <select name="province" class="form-control">
+      <!---->
+    </select>
+  </div>
+ 
+    <div class="form-group">
+    <label for="">Kota/Kabupaten</label>
+    <select name="kota_kab" class="form-control">
+      <!---->
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="">Current Image</label>
+    <p>
+      <% if (image == "") { %>
+      <img id="noimage" src="/images/noimage.png" alt="">
+      <% } else {%>
+      <img id="noimage" src="/product_images/<%= id %>/<%= image %>" alt="">
+      <% } %>
+    </p>
+  </div>
+
+   <div class="form-group">
+    <label for="">Active</label>
+    <select class="form-group" name="activeflag">
+      <option value="1">Yes</option>
+      <option value="0>">No</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="">Upload Image</label>
+    <input type="file" class="form-control" name="image" id="img">
+    <img src="#" id="imgPreview" alt="">
+  </div>
+
+  <input type="hidden" name="pimage" value="<%= image %>">
+  <button class="btn btn-primary">Submit</button>
+</form>
+
+<hr>
+<h3 class="page-header">Gallery</h3>
+
+<ul class="gallery">
+  <% galleryImages.forEach(function(image){ %>
+  <% if (image != "thumbs") { %>
+  <li>
+    <img src="/product_images/<%= id %>/gallery/thumbs/<%= image %>" alt="">&nbsp;
+    <a class="confirmDeletion" href="/admin/products/delete-image/<%= image %>?id=<%= id %>">delete</a>
+  </li>
+  <% } %>
+  <% }); %>
+</ul>
+
+<br><br>
+<form action="/admin/products/product-gallery/<%= id %>" method="post" enctype="multipart/form-data" class="dropzone"
+  id="dropzoneForm">
+  <div class="fallback">
+    <input type="file" name="file" multiple>
+    <input type="submit" value="Upload">
+  </div>
+</form>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.1/basic.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.1/dropzone.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.1/dropzone.js"></script>
+<script>
+
+  // Preview image
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $("#imgPreview").attr('src', e.target.result).width(100).height(100);
+      }
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $("#img").change(function () {
+    readURL(this);
+  });
+
+  // Dropzone
+  Dropzone.options.dropzoneForm = {
+    acceptedFiles: "image/*",
+    init: function () {
+      this.on("queuecomplete", function (file) {
+        setTimeout(function () {
+          location.reload()
+        }, 1000);
+      });
+    }
+  }
+
+</script>
+
+
+<%- include('../_layouts/adminfooter') %>

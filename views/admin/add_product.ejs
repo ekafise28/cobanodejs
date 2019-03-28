@@ -1,0 +1,154 @@
+<%- include('../_layouts/adminheader') %>
+
+<div class="ibox-content col-lg-8 mx-auto">
+<div class="jumbotron" style="text-align:center;margin-bottom: 10px;">
+        <h1><b>Product</b></h1>  
+  </div>
+
+
+<form method="post" action="/admin/products/add-product" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for=""><b>Category</b></label>
+    <select name="category" class="form-control">
+      <% categories.forEach(function(cat){ %>
+      <option value="<%= cat.slug %>">
+        <%= cat.title %>
+      </option>
+      <% }); %>
+    </select>
+  </div>
+ 
+
+  <div class="form-group">
+    <label for=""><b>Artist</b></label>
+    <input type="text" class="form-control" name="seniman" value="<%= seniman %>" placeholder="Artist">
+  </div>
+
+ <div class="form-group">
+    <label for=""><b>Title</b></label>
+    <input type="text" class="form-control" name="title" value="<%= title %>" placeholder="Title / Judul Karya">
+  </div>
+
+  <div class="form-group">
+    <label for=""><b>Size</b></label>
+    <input type="text" class="form-control" name="ukuran" value="<%= ukuran %>" placeholder="Size">
+  </div>
+
+  <div class="form-group">
+    <label for="">Media</label>
+    <input type="text" class="form-control" name="media" value="<%= media %>" placeholder="Media">
+  </div>
+
+  <div class="form-group">
+    <label for="">Description</label>
+    <textarea name="desc" class="form-control" cols="30" rows="10" placeholder="Description"><%= desc %></textarea>
+  </div>
+  <div class="form-group">
+    <label for="">Year</label>
+    <input type="text" class="form-control" name="tahun" value="<%= tahun %>" placeholder="Tahun">
+  </div>
+
+  <div class="form-group">
+    <label for="">Price</label>
+    <input type="text" class="form-control" name="price" value="<%= price %>" placeholder="Price">
+  </div>
+
+  <div class="form-group">
+    <label for="">Discount</label>
+    <input type="text" class="form-control" name="discount" value="<%= discount %>" placeholder="Discount">
+  </div>
+
+   <div class="form-group">
+    <label for="">Negotiable</label>
+     <select class="form-group" name="negotiable">
+        <option value="1">Yes</option>
+        <option value="0>">No</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="">Seller Name</label>
+    <input type="text" class="form-control" name="sellername" value="<%= sellername %>" placeholder="Seller Name">
+  </div>
+
+  <div class="form-group">
+    <label for="">Gallery</label>
+    <input type="text" class="form-control" name="galery" value="<%= galery %>" placeholder="Galery Name">
+  </div>
+
+  <div class="form-group">
+    <label for="">Phone</label>
+    <input type="text" class="form-control" name="phone" value="<%= phone %>" placeholder="Phone Number">
+  </div>
+
+  <div class="form-group">
+    <label for="">Sms</label>
+    <input type="text" class="form-control" name="sms" value="<%= sms %>" placeholder="SMS">
+  </div>  
+ 
+  <div class="form-group">
+    <label for="">Whatsapp</label>
+    <input type="text" class="form-control" name="wa" value="<%= wa %>" placeholder="Whastapp">
+  </div>  
+
+  <div class="form-group">
+    <label for="">Address</label>
+    <input type="text" class="form-control" name="address" value="<%= address %>" placeholder="Address">
+  </div>  
+ 
+  <div class="form-group">
+    <label for="">Province</label>
+    <select id="province" name="province" class="form-control">
+      <% provinces.forEach(function(prov){ %>
+      <option value="<%= prov.slug %>">
+        <%= prov.title %>
+      </option>
+      <% }); %>
+    </select>
+  </div>
+
+    <div class="form-group">
+    <label for="">Kota/Kabupaten</label>
+    <select id="kota_kab" name="kota_kab" class="form-control">
+      <!---->
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="">Image</label>
+    <input type="file" class="form-control" name="image" id="img">
+    <img src="#" id="imgPreview" alt="imgPreview">
+  </div>
+
+  <div class="form-group">
+    <label for="">Active</label>
+    <select class="form-group" name="activeflag">
+      <option value="1">Yes</option>
+      <option value="0>">No</option>
+    </select>
+  </div>
+
+  <button class="btn btn-primary">Submit</button>
+</form>
+
+<script>
+
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $("#imgPreview").attr('src', e.target.result).width(100).height(100);
+      }
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $("#img").change(function () {
+    readURL(this);
+  });
+
+</script>
+
+<%- include('../_layouts/adminfooter') %>
