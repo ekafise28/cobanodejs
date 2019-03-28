@@ -10,12 +10,12 @@ var passport = require("passport");
 var cookieParser = require('cookie-parser'); 
 
 
-express()
-  .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('index'))
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+// express()
+//   .use(express.static(path.join(__dirname, 'public')))
+//   .set('views', path.join(__dirname, 'views'))
+//   .set('view engine', 'ejs')
+//   .get('/', (req, res) => res.render('index'))
+//   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
   
 var mongoDB = "mongodb://heroku_login123:Ayam!123@ds123196.mlab.com:23196/heroku_qgkt37l7";
@@ -32,14 +32,11 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // Initial 
 var app = express();
-
 // View engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
-
 // Set public folder
 app.use(express.static(path.join(__dirname, "public")));
-
 // Setup Global errors variable
 app.locals.errors = null;
 
@@ -191,3 +188,7 @@ app.use("/cart", cart);
 app.use("/users", users);
 app.use("/search", searchs);
 app.use("/", pages);
+
+app.listen(PORT, function() {
+  console.log("Server running on port " + PORT);
+});
