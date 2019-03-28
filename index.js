@@ -2,12 +2,12 @@ const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
 const mongoose = require("mongoose");
-var bodyParser = require("body-parser");
-var session = require("express-session");
-var expressValidator = require("express-validator");
-var fileUpload = require("express-fileupload");
-var passport = require("passport");
-var cookieParser = require('cookie-parser'); 
+const bodyParser = require("body-parser");
+const session = require("express-session");
+const expressValidator = require("express-validator");
+const fileUpload = require("express-fileupload");
+const passport = require("passport");
+const cookieParser = require('cookie-parser'); 
 
 
 // express()
@@ -18,20 +18,16 @@ var cookieParser = require('cookie-parser');
 //   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
   
-var mongoDB = "mongodb://heroku_login123:Ayam!123@ds123196.mlab.com:23196/heroku_qgkt37l7";
-
+const mongoDB = "mongodb://heroku_login123:Ayam!123@ds123196.mlab.com:23196/heroku_qgkt37l7";
 mongoose.connect(mongoDB, {
   useNewUrlParser: true
 });
-
-var db = mongoose.connection;
-
+const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
-
 // Initial 
-var app = express();
+const app = express();
 // View engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -41,7 +37,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.locals.errors = null;
 
 // Get Page Model
-var Page = require("./models/page");
+const Page = require("./models/page");
 
 // Get all pages to pass to header.ejs
 Page.find({})
@@ -68,7 +64,7 @@ Page.find({})
   //   });
 
 // Get Category Model
-var Category = require("./models/category");
+const Category = require("./models/category");
 
 // Get all categories to pass to header.ejs
 Category.find(function(err, categories) {
@@ -109,7 +105,7 @@ app.use(cookieParser());
 app.use(
   expressValidator({
     errorFormatter: function(param, msg, value) {
-      var namespace = param.split("."),
+      const namespace = param.split("."),
         root = namespace.shift(),
         formParam = root;
 
@@ -124,7 +120,7 @@ app.use(
     },
     customValidators: {
       isImage: function(value, filename) {
-        var extension = path.extname(filename).toLowerCase();
+        const extension = path.extname(filename).toLowerCase();
         switch (extension) {
           case ".jpg":
             return ".jpg";
@@ -164,17 +160,17 @@ app.get("*", function(req, res, next) {
 
 
 // set routes
-var pages = require("./routes/pages.js");
-var products = require("./routes/products.js");
-var cart = require("./routes/cart.js");
-var users = require("./routes/users.js");
-var adminPages = require("./routes/admin_pages.js");
-var adminCategories = require("./routes/admin_categories.js");
-var adminProducts = require("./routes/admin_products.js");
-var adminProvinces = require("./routes/admin_provinces.js");
-var searchs = require("./routes/search.js");
-var adminaccounts = require("./routes/accounts.js");
-var adminchats = require("./routes/chats.js");
+const pages = require("./routes/pages.js");
+const products = require("./routes/products.js");
+const cart = require("./routes/cart.js");
+const users = require("./routes/users.js");
+const adminPages = require("./routes/admin_pages.js");
+const adminCategories = require("./routes/admin_categories.js");
+const adminProducts = require("./routes/admin_products.js");
+const adminProvinces = require("./routes/admin_provinces.js");
+const searchs = require("./routes/search.js");
+const adminaccounts = require("./routes/accounts.js");
+const adminchats = require("./routes/chats.js");
  
 // setup links
 app.use("/admin/pages", adminPages);

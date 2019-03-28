@@ -8242,3 +8242,8 @@ body.md-skin {
 .box1:hover {
   box-shadow: 0 0 11px rgba(66,66,66,.9); 
 }
+
+.two:hover {
+  text-shadow: 2px 2px 5px red;
+}
+
