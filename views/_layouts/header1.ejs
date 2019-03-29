@@ -31,14 +31,10 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
-
-
    <link href="//s.w.org/wp-includes/css/dashicons.css?20150710" rel="stylesheet" type="text/css">
   <title>
     <%=  %>
   </title>
-   
 </head>
 <body>
 <!-- nitip di header_bu.ejs -->
@@ -52,41 +48,60 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto" style="margin-right: 10px;">
+                  <li class="two nav-item">
+                    <a class="btn my-2 my-sm-0"  href="/products/painting" style="padding-right: 20px; color: grey;"><b>PAINTING</b></a>
+                  </li>
+                  <li class="two nav-item">
+                    <a class="btn  my-2 my-sm-0" href="/products/sculpture" style="padding-right: 20px; color: grey;"><b>SCULPTURE</b></a>
+                  </li>
+                  <li class="two nav-item">
+                    <a class="btn  my-2 my-sm-0" href="/products/pottery" style="padding-right: 20px; color: grey;"><b>POTTERY</b></a>
+                  </li>
+                  <li class="two nav-item">
+                    <a class="btn  my-2 my-sm-0" href="/products/craft" style="padding-right: 20px; color: grey;"><b>CRAFT</b></a>
+                  </li>
+                   <li class="two nav-item">
+                    <a class="btn  my-2 my-sm-0" href="/products/digital-art" style="padding-right: 20px; color: grey;"><b>DIGITAL ART</b></a>
+                  </li>
+                  <li class="two nav-item">
+                    <a class="btn  my-2 my-sm-0" href="/products/artwork" style="padding-right: 100px; color: grey;"><b>ARTWORK</b></a>
+                  </li>
+
             <% pages.forEach(function(page){ %>
                   <%  if (page.slug == "home") { %> 
                    <li class="nav-item">
-                    <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="/admin/pages"> <b><%= page.title %></b></a>
+                    <a class="btn btn-outline-secondary my-2 my-sm-0" href="/"> <b><%= page.title %></b></a>
                   </li>
                   <% } else {%>
                    <li class="nav-item">
-                  <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="/<%= page.slug %>"><b><%= page.title %></b></a>
+                  <a class="btn btn-outline-secondary my-2 my-sm-0" href="/<%= page.slug %>"><b><%= page.title %></b></a>
                     </li>
                     <% } %>
                     <% }); %>
                   <% if (user) { %>
                    <li class="nav-item">
-                    <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1 " href="/users/logout">logout</a>
+                    <a class="btn btn-outline-secondary my-2 my-sm-0" href="/users/logout">Hi, <%= user.username %> ( logout )</a>
                   </li>
                   <% } else {%>
                    <li class="nav-item">
-                    <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="/">Home</a>
+                    <a class="btn btn-outline-secondary my-2 my-sm-0" href="/">Home</a>
                     </li>
                      <li class="nav-item">
-                    <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="/users/register">Register</a>
+                    <a class="btn btn-outline-secondary my-2 my-sm-0" href="/users/register">Register</a>
                     </li>
                      <li class="nav-item">
-                    <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="/users/login">Log in</a>
+                    <a class="btn btn-outline-secondary my-2 my-sm-0" href="/users/login">Log in</a>
                     </li>
                   <% } %>
                     <% if (user && (user.admin == 1 || user.admin == 2 ) ) { %>
 
                     <div class="dropdown show">
-                      <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <a class="btn btn-outline-secondary my-2 my-sm-0" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Admin
                       </a>
                       <div class="dropdown-menu">
                         <a class="dropdown-item" href="/admin/categories">Category</a>
-                        <a class="dropdown-item" href="/admin/products/<%= user._id %>">Product</a>
+                        <a class="dropdown-item" href="/admin/products/">Product</a>
                         <a class="dropdown-item" href="/admin/accounts/<%= user._id %>">User</a>
                         <a class="dropdown-item" href="/admin/chats/<%= user.email %>">Chat</a>
                       </div>
@@ -97,6 +112,7 @@
                   </li>
         
          <li>
+                        <a href="#" data-toggle="dropdown" class="btn btn-outline-secondary my-2 my-sm-0">Filter<b class="caret"></b></a>
                         <ul class="dropdown-menu" >
                             <li>
                             <input id="caritext" class="form-control mr-sm-2 btn-outline-secondary my-2 my-sm-0" type="text" placeholder="Kata Pencarian" aria-label="Search">
@@ -121,7 +137,7 @@
       </div>
     </div>
   </nav>
-</header>
+
 
   <div class="text-right">
       <script type="text/javascript">
@@ -132,25 +148,16 @@
                 };
       </script>
   </div>
-
+</header>
+<main role="main">
   <div class="container-fluid text-white" style="background-color:#FF0000;">
         <div  style="margin-bottom: 20px;">
             <img alt="" src="/images/logo-yoedaart.png" style="height:125px;margin-top: 20px;margin-left: 40px;">
         </div>
     </div>
   </div>
-
-   <div class="col-lg-8 mx-auto">  
-    <ul class="nav nav-tabs">
-      <li><a href="/admin/pages">Home</a></li>
-      <li><a href="/admin/products/%>">Ads Collection</a></li>
-      <li><a href="/admin/accounts/<%= user._id %>">Account</a></li>
-      <li><a href="/admin/chats/<%= user.email %>">Messages</a></li>
-    </ul>
-  </div>
-
-   
-        <%- messages('messages', locals) %>
+</main>
+  <%- messages('messages', locals) %>
         <% if (errors) {%>
         <% errors.forEach(function(error) { %>
         <div class="alert alert-danger col-lg-8 mx-auto" style="text-align:center;">
@@ -158,5 +165,4 @@
         </div>
         <% });%>
         <% }%>
-   
   </div>

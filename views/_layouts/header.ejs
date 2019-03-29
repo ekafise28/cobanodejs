@@ -40,63 +40,73 @@
 <!-- nitip di header_bu.ejs -->
  <header>
   <!-- Fixed navbar -->
-  <nav class="navbar navbar-expand-md navbar-dark bg-red"> <!-- fixed-top -->
-  
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-       <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-        <ul class="navbar-nav ml-auto" style="margin-right: 10px;">
-                  <li class="two nav-item">
-                    <a class="btn my-2 my-sm-0"  href="/products/painting" style="padding-right: 20px; color: grey;"><b>PAINTING</b></a>
-                  </li>
-                  <li class="two nav-item">
-                    <a class="btn  my-2 my-sm-0" href="/products/sculpture" style="padding-right: 20px; color: grey;"><b>SCULPTURE</b></a>
-                  </li>
-                  <li class="two nav-item">
-                    <a class="btn  my-2 my-sm-0" href="/products/pottery" style="padding-right: 20px; color: grey;"><b>POTTERY</b></a>
-                  </li>
-                  <li class="two nav-item">
-                    <a class="btn  my-2 my-sm-0" href="/products/craft" style="padding-right: 20px; color: grey;"><b>CRAFT</b></a>
-                  </li>
-                   <li class="two nav-item">
-                    <a class="btn  my-2 my-sm-0" href="/products/digital-art" style="padding-right: 20px; color: grey;"><b>DIGITAL ART</b></a>
-                  </li>
-                  <li class="two nav-item">
-                    <a class="btn  my-2 my-sm-0" href="/products/artwork" style="padding-right: 100px; color: grey;"><b>ARTWORK</b></a>
-                  </li>
+<!-- example 8 - center logo on mobile, search right -->
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="navbar-collapse collapse w-100 order-4 order-md-0 collapsenav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                 <a class="two btn my-2 my-sm-0"  href="/products/painting" style="color: grey;"><b>PAINTING</b></a>
+            </li>
+            <li class="nav-item">
+               <a class="two btn  my-2 my-sm-0" href="/products/sculpture" style="color: grey;"><b>SCULPTURE</b></a>
+            </li>
+             <li class="nav-item">
+               <a class="two btn  my-2 my-sm-0" href="/products/pottery" style="color: grey;"><b>POTTERY</b></a>
+            </li>
+             <li class="nav-item">
+               <a class="two btn  my-2 my-sm-0" href="/products/craft" style="color: grey;"><b>CRAFT</b></a>
+            </li>
+             <li class="nav-item">
+               <a class="two btn  my-2 my-sm-0" href="/products/digital-art" style="color: grey;"><b>DIGITAL ART</b></a>
+            </li>
+             <li class="nav-item">
+               <a class="two btn  my-2 my-sm-0" href="/products/artwork" style="color: grey;"><b>ARTWORK</b></a>
+            </li>
+        </ul>
+    </div>
+    <div class="w-100 d-flex flex-nowrap">
+        <div class="w-100 d-md-none">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".collapsenav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="d-flex mx-auto order-0">
+        </div>
+        <div class="d-flex justify-content-end order-3">
+          <div class="navbar-collapse collapse w-100 order-4 order-md-0 collapsenav">
+        <ul class="navbar-nav mr-auto">
+
 
             <% pages.forEach(function(page){ %>
                   <%  if (page.slug == "home") { %> 
                    <li class="nav-item">
-                    <a class="btn btn-outline-secondary my-2 my-sm-0" href="/"> <b><%= page.title %></b></a>
+                          <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="/"> <b><%= page.title %></b></a>
                   </li>
                   <% } else {%>
                    <li class="nav-item">
-                  <a class="btn btn-outline-secondary my-2 my-sm-0" href="/<%= page.slug %>"><b><%= page.title %></b></a>
+                          <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="/<%= page.slug %>"><b><%= page.title %></b></a>
                     </li>
                     <% } %>
                     <% }); %>
                   <% if (user) { %>
                    <li class="nav-item">
-                    <a class="btn btn-outline-secondary my-2 my-sm-0" href="/users/logout">Hi, <%= user.username %> ( logout )</a>
+                          <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="/users/logout">Hi, <%= user.username %> ( logout )</a>
                   </li>
                   <% } else {%>
                    <li class="nav-item">
-                    <a class="btn btn-outline-secondary my-2 my-sm-0" href="/">Home</a>
-                    </li>
-                     <li class="nav-item">
-                    <a class="btn btn-outline-secondary my-2 my-sm-0" href="/users/register">Register</a>
-                    </li>
-                     <li class="nav-item">
-                    <a class="btn btn-outline-secondary my-2 my-sm-0" href="/users/login">Log in</a>
-                    </li>
+                          <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="/">Home</a>
+                   </li>
+                   <li class="nav-item">
+                          <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="/users/register">Register</a>
+                   </li>
+                   <li class="nav-item">
+                          <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="/users/login">Log in</a>
+                   </li>
                   <% } %>
-                    <% if (user && (user.admin == 1 || user.admin == 2 ) ) { %>
-
+                   <% if (user && (user.admin == 1 || user.admin == 2 ) ) { %>
+                   <li>
                     <div class="dropdown show">
-                      <a class="btn btn-outline-secondary my-2 my-sm-0" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Admin
                       </a>
                       <div class="dropdown-menu">
@@ -106,37 +116,30 @@
                         <a class="dropdown-item" href="/admin/chats/<%= user.email %>">Chat</a>
                       </div>
                     </div>
-
-                  <% }%>                   
-                   <li>
                   </li>
+                  <% }%>  
+                  <li>
+                      <a href="#" data-toggle="dropdown" class="btn btn-outline-secondary my-2 my-sm-0 mr-1" >Filter<b class="caret"></b></a>
+                  </li>
+                  <li class="nav-item">
+                        <form class="d-flex flex-nowrap align-items-center"  id="forma1">          
+                          <input id="caritext" class="form-control mr-sm-2 my-2 my-sm-0" type="text" placeholder="Search" aria-label="Search">
+                          <button class="btn btn-outline-secondary my-2 my-sm-0" type="button" onClick="searching()" id="cari" value="Cari"><i class="fas fa-search"></i></button>
+                        </form>
+                  </li>
+              
         
-         <li>
-                        <a href="#" data-toggle="dropdown" class="btn btn-outline-secondary my-2 my-sm-0">Filter<b class="caret"></b></a>
-                        <ul class="dropdown-menu" >
-                            <li>
-                            <input id="caritext" class="form-control mr-sm-2 btn-outline-secondary my-2 my-sm-0" type="text" placeholder="Kata Pencarian" aria-label="Search">
-                            <button class="btn btn-outline-secondary my-2 my-sm-0" type="button" onClick="" id="" value="">Seluruh Indonesia</button>
-                          
-                           <input id="caritext" class="form-control mr-sm-2 btn-outline-secondary my-2 my-sm-0" type="text" placeholder="Pilih Provinsi" aria-label="Search">
-                           <input id="caritext" class="form-control mr-sm-2 btn-outline-secondary my-2 my-sm-0" type="text" placeholder="Pilih Kota" aria-label="Search">    
-                           <input id="caritext" class="form-control mr-sm-2 btn-outline-secondary my-2 my-sm-0" type="text" placeholder="Kategori" aria-label="Search">    
-                           
-                            <button class="btn btn-outline-secondary my-2 my-sm-0" type="button" onClick="searching()" id="cari" value="Cari">Cari</button>
-                            <button class="btn btn-outline-secondary my-2 my-sm-0" type="button" onClick="" id="batal" value="Batal">Batal</button>
-                            </li>
-                        </ul>
-                    </li>
+        
+        
         </ul>
+    </div>  
 
-        <form class="form-inline mt-2 mt-md-0" id="forma1">
-        <input id="caritext" class="form-control mr-sm-2 my-2 my-sm-0" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-secondary my-2 my-sm-0" type="button" onClick="searching()" id="cari" value="Cari"><i class="fas fa-search"></i></button>
-      </form>
-       
-      </div>
+         
+          
+        </div>
     </div>
-  </nav>
+</nav>
+
 
 
   <div class="text-right">
