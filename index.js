@@ -23,6 +23,7 @@ mongoose.connect(mongoDB, {
   useNewUrlParser: true
 });
 const db = mongoose.connection;
+mongoose.set('useCreateIndex', true);
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
