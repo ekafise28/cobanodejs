@@ -8246,3 +8246,16 @@ body.md-skin {
 .two:hover {
   text-decoration: underline;
 }
+
+.claimSteps {
+    padding-top: 40px;
+    padding-bottom: 20px;
+    width: 200px;
+    background-color: grey;
+    color: #ffffff;
+    text-align: center;
+}
+
+.stepsBox {
+    padding-bottom: 10px;
+}

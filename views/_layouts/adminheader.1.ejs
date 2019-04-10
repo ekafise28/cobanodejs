@@ -86,10 +86,10 @@
                         Admin
                       </a>
                       <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/admin/categories">CATEGORY</a>
-                        <a class="dropdown-item" href="/admin/products/<%= user._id %>">PRODUCT</a>
-                        <a class="dropdown-item" href="/admin/accounts/<%= user._id %>">USER</a>
-                        <a class="dropdown-item" href="/admin/chats/<%= user.email %>">CHAT</a>
+                        <a class="dropdown-item" href="/admin/categories">Category</a>
+                        <a class="dropdown-item" href="/admin/products/<%= user._id %>">Product</a>
+                        <a class="dropdown-item" href="/admin/accounts/<%= user._id %>">User</a>
+                        <a class="dropdown-item" href="/admin/chats/<%= user.email %>">Chat</a>
                       </div>
                     </div>
 
@@ -143,17 +143,14 @@
 
    <div class="col-lg-8 mx-auto">  
     <ul class="nav nav-tabs">
-      <li><a href="/admin/pages">HOME</a></li>
-      <li><a href="/admin/products/%>">ADS</a></li>
-      <li><a href="/admin/chats/<%= user.email %>">MESSAGE</a></li>
-      <li><a href="/admin/accounts/<%= user._id %>">SETTING</a></li>
-      
+      <li><a href="/admin/pages">Home</a></li>
+      <li><a href="/admin/products/%>">Ads Collection</a></li>
+      <li><a href="/admin/accounts/<%= user._id %>">Account</a></li>
+      <li><a href="/admin/chats/<%= user.email %>">Messages</a></li>
     </ul>
   </div>
 
    
-
-
         <%- messages('messages', locals) %>
         <% if (errors) {%>
         <% errors.forEach(function(error) { %>

@@ -1,0 +1,108 @@
+<%- include('../_layouts/adminheader') %>
+
+
+<div class="ibox-content col-lg-8 mx-auto">
+<div class="jumbotron" style="text-align:center;margin-bottom: 10px;">
+        <h1><b>Account</b></h1>  
+  </div>
+
+<form method="post" action="/admin/accounts/edit-account/<%= accounts.id %>" enctype="multipart/form-data">
+
+  <div class="form-group">
+    <label for="" class="col-lg-3"><b>Name</b></label>
+    <input type="text" class="form-control col-lg-3" name="name" value="<%= accounts.name %>" placeholder="Name">
+       <label for=""><%= accounts.email %>"</label>
+  </div>
+
+  <div class="form-group">
+    <label for=""><b>address</b></label>
+    <input type="text" class="form-control" name="address" value="<%= accounts.address %>" placeholder="Address">
+  </div>
+
+  <div class="form-group">
+    <label for=""><b>Province</b></label>
+    <select name="province" class="form-control">
+      <!---->
+    </select>
+  </div>
+ 
+    <div class="form-group">
+    <label for=""><b>Kota</b></label>
+    <select name="kota_kab" class="form-control">
+      <!---->
+    </select>
+  </div>
+
+
+  <div class="form-group">
+    <label for=""></b>Facebook</b></label>
+    <input type="text" class="form-control" name="facebook" value="<%= accounts.facebook %>" placeholder="Facebook">
+  </div>
+
+  <div class="form-group">
+    <label for=""><b>Istagram</b></label>
+    <input type="text" class="form-control" name="instagram" value="<%= accounts.instagram %>" placeholder="Instagram">
+  </div>
+
+  <div class="form-group">
+    <label for=""><b>Photo Profile</b></label>
+  </div>
+  
+  <div class="form-group">
+    <p>
+      <% if (accounts.image == "") { %>
+      <img id="noimage" class="w-25 p-3 mx-auto" src="/images/noimage.png" alt="">
+      <% } else {%>
+      <img id="noimage" class="w-25 p-3 mx-auto" src="/account_images/<%= accounts.id %>/<%= accounts.image %>" alt="">
+      <% } %>
+    </p>
+  </div>
+
+  <div class="form-group">
+    <label for=""><b>Upload Image</b></label>
+    <input type="file" class="form-control" name="image" id="img">
+    <img src="#" id="imgPreview" alt="">
+  </div>
+
+  <input type="hidden" name="pimage" value="<%= accounts.image %>">
+  <button class="btn btn-primary">Submit</button>
+</form>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.1/basic.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.1/dropzone.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.1/dropzone.js"></script>
+<script>
+
+  // Preview image
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $("#imgPreview").attr('src', e.target.result).width(100).height(100);
+      }
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $("#img").change(function () {
+    readURL(this);
+  });
+
+  // Dropzone
+  Dropzone.options.dropzoneForm = {
+    acceptedFiles: "image/*",
+    init: function () {
+      this.on("queuecomplete", function (file) {
+        setTimeout(function () {
+          location.reload()
+        }, 1000);
+      });
+    }
+  }
+
+</script>
+
+<%- include('../_layouts/adminfooter') %>

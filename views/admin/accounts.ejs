@@ -1,72 +1,130 @@
 <%- include('../_layouts/adminheader') %>
 
-
 <div class="ibox-content col-lg-8 mx-auto">
-<div class="jumbotron" style="text-align:center;margin-bottom: 10px;">
-        <h1><b>Account</b></h1>  
-  </div>
-
-<form method="post" action="/admin/accounts/edit-account/<%= accounts.id %>" enctype="multipart/form-data">
-
-  <div class="form-group">
-    <label for="" class="col-lg-3"><b>Name</b></label>
-    <input type="text" class="form-control col-lg-3" name="name" value="<%= accounts.name %>" placeholder="Name">
-       <label for=""><%= accounts.email %>"</label>
-  </div>
-
-  <div class="form-group">
-    <label for=""><b>address</b></label>
-    <input type="text" class="form-control" name="address" value="<%= accounts.address %>" placeholder="Address">
-  </div>
-
-  <div class="form-group">
-    <label for=""><b>Province</b></label>
-    <select name="province" class="form-control">
-      <!---->
-    </select>
-  </div>
- 
-    <div class="form-group">
-    <label for=""><b>Kota</b></label>
-    <select name="kota_kab" class="form-control">
-      <!---->
-    </select>
-  </div>
 
 
-  <div class="form-group">
-    <label for=""></b>Facebook</b></label>
-    <input type="text" class="form-control" name="facebook" value="<%= accounts.facebook %>" placeholder="Facebook">
-  </div>
+ <div class="stepsBox">
+                <div class="claimSteps" id="stepOne">
+                     <h1><b>SETTING</b></h1>  
+                </div>
+            </div>
 
-  <div class="form-group">
-    <label for=""><b>Istagram</b></label>
-    <input type="text" class="form-control" name="instagram" value="<%= accounts.instagram %>" placeholder="Instagram">
-  </div>
 
-  <div class="form-group">
-    <label for=""><b>Photo Profile</b></label>
-  </div>
-  
-  <div class="form-group">
-    <p>
-      <% if (accounts.image == "") { %>
-      <img id="noimage" class="w-25 p-3 mx-auto" src="/images/noimage.png" alt="">
-      <% } else {%>
-      <img id="noimage" class="w-25 p-3 mx-auto" src="/account_images/<%= accounts.id %>/<%= accounts.image %>" alt="">
-      <% } %>
-    </p>
-  </div>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <div style="color:grey;"><b>CONTACT DETAIL</b></div>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        
+                 <form method="post" action="/admin/accounts/edit-account/<%= accounts.id %>" enctype="multipart/form-data">
+                
+                    <div class="form-group">
+                      <label for="" class="col-lg-3"><b>Name</b></label>
+                      <input type="text" class="form-control col-lg-3" name="name" value="<%= accounts.name %>" placeholder="Name">
+                        <label for=""><%= accounts.email %>"</label>
+                    </div>
 
-  <div class="form-group">
-    <label for=""><b>Upload Image</b></label>
-    <input type="file" class="form-control" name="image" id="img">
-    <img src="#" id="imgPreview" alt="">
-  </div>
+                    <div class="form-group">
+                      <label for=""><b>Photo Profile</b></label>
+                    </div>
+                  
+                    <div class="form-group">
+                      <p>
+                        <% if (accounts.image == "") { %>
+                        <img id="noimage" class="w-25 p-3 mx-auto" src="/images/noimage.png" alt="">
+                        <% } else {%>
+                        <img id="noimage" class="w-25 p-3 mx-auto" src="/account_images/<%= accounts.id %>/<%= accounts.image %>" alt="">
+                        <% } %>
+                      </p>
+                    </div>
 
-  <input type="hidden" name="pimage" value="<%= accounts.image %>">
-  <button class="btn btn-primary">Submit</button>
-</form>
+                    <div class="form-group">
+                      <label for=""><b>Upload Image</b></label>
+                      <input type="file" class="form-control" name="image" id="img">
+                      <img src="#" id="imgPreview" alt="">
+                    </div>
+
+                    <input type="hidden" name="pimage" value="<%= accounts.image %>">
+                    <button class="btn btn-primary">Simpan</button>
+                  </form>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <div style="color:grey;"><b>PROFILE DETAIL</b></div>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+
+                  <form method="post" action="/admin/accounts/edit-account/<%= accounts.id %>" enctype="multipart/form-data">
+                    
+                    <div class="form-group">
+                      <label for=""><b>address</b></label>
+                      <input type="text" class="form-control" name="address" value="<%= accounts.address %>" placeholder="Address">
+                    </div>
+
+                    <div class="form-group">
+                      <label for=""><b>Province</b></label>
+                      <select name="province" class="form-control">
+                        <!---->
+                      </select>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for=""><b>Kota</b></label>
+                      <select name="kota_kab" class="form-control">
+                        <!---->
+                      </select>
+                    </div>
+                  
+                    <input type="hidden" name="pimage" value="<%= accounts.image %>">
+                    <button class="btn btn-primary">Simpan</button>
+                  </form>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <div style="color:grey;"><b>SOSIAL MEDIA</b></div>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+          
+                    <form method="post" action="/admin/accounts/edit-account/<%= accounts.id %>" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                      <label for=""></b>Facebook</b></label>
+                      <input type="text" class="form-control" name="facebook" value="<%= accounts.facebook %>" placeholder="Facebook">
+                    </div>
+
+                    <div class="form-group">
+                      <label for=""><b>Instagram</b></label>
+                      <input type="text" class="form-control" name="instagram" value="<%= accounts.instagram %>" placeholder="Instagram">
+                    </div>
+                
+                    <input type="hidden" name="pimage" value="<%= accounts.image %>">
+                    <button class="btn btn-primary">Simpan</button>
+                  </form>
+
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.1/basic.css" />

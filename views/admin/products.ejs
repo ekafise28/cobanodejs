@@ -1,22 +1,24 @@
 <%- include('../_layouts/adminheader') %>
 
 <div class="ibox-content col-lg-8 mx-auto">
-<div class="jumbotron" style="text-align:center;margin-bottom: 10px;">
-        <h1><b>Products</b></h1>  
-  </div>
-<div><a href="/admin/products/add-product" class="btn btn-primary" style="margin-bottom: 10px;">Add a new product</a></div>
+
+ <div class="stepsBox">
+                <div class="claimSteps" id="stepOne">
+                     <h1><b>ADS</b></h1>  
+                </div>
+            </div>
+<div><a href="/admin/products/add-product" class="btn btn-primary" style="margin-bottom: 10px;">Add a new Ads</a></div>
 <% if (count > 0) { %>
 
 <table class="table table-striped alignmiddle">
-
   <thead  style='background-color:#FF4500; color:#FFF;'>
     <tr class="home">
-      <th>Product Image</th>
-      <th>Product</th>
-      <th>Price</th>
-      <th>Category</th>
-      <th>Edit</th>
-      <th>Delete</th>
+      <th>IMAGE</th>
+      <th>ARTIST & TITLE</th>
+      <th>PRICE</th>
+      <th>CATEGORY</th>
+      <th>EDIT</th>
+      <th>DELETE</th>
     </tr>
   </thead>
   <tbody>
@@ -32,7 +34,7 @@
       <td>
         <%= product.title %>
       </td>
-      <td>$
+      <td>IDR
         <%= parseFloat(product.price).toFixed(2) %>
       </td>
       <td>
