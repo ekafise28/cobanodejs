@@ -46,22 +46,22 @@
     <div class="navbar-collapse collapse w-100 order-4 order-md-0 collapsenav">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                 <a class="two btn my-2 my-sm-0"  href="/products/painting" style="color: grey;"><b>PAINTING</b></a>
+                 <a class="two h5 my-2 my-sm-0 pr-4"  href="/products/painting" style="color: grey;"><b>PAINTING</b></a>
             </li>
             <li class="nav-item">
-               <a class="two btn  my-2 my-sm-0" href="/products/sculpture" style="color: grey;"><b>SCULPTURE</b></a>
+               <a class="two h5  my-2 my-sm-0 pr-4" href="/products/sculpture" style="color: grey;"><b>SCULPTURE</b></a>
             </li>
              <li class="nav-item">
-               <a class="two btn  my-2 my-sm-0" href="/products/pottery" style="color: grey;"><b>POTTERY</b></a>
+               <a class="two h5  my-2 my-sm-0 pr-4" href="/products/pottery" style="color: grey;"><b>POTTERY</b></a>
             </li>
              <li class="nav-item">
-               <a class="two btn  my-2 my-sm-0" href="/products/craft" style="color: grey;"><b>CRAFT</b></a>
+               <a class="two h5  my-2 my-sm-0 pr-4" href="/products/craft" style="color: grey;"><b>CRAFT</b></a>
             </li>
              <li class="nav-item">
-               <a class="two btn  my-2 my-sm-0" href="/products/digital-art" style="color: grey;"><b>DIGITAL ART</b></a>
+               <a class="two h5  my-2 my-sm-0 pr-4" href="/products/digital-art" style="color: grey;"><b>DIGITAL ART</b></a>
             </li>
              <li class="nav-item">
-               <a class="two btn  my-2 my-sm-0" href="/products/artwork" style="color: grey;"><b>ARTWORK</b></a>
+               <a class="two h5  my-2 my-sm-0 pr-4" href="/products/artwork" style="color: grey;"><b>ARTWORK</b></a>
             </li>
         </ul>
     </div>
@@ -76,8 +76,6 @@
         <div class="d-flex justify-content-end order-3">
           <div class="navbar-collapse collapse w-100 order-4 order-md-0 collapsenav">
         <ul class="navbar-nav mr-auto">
-
-
             <% pages.forEach(function(page){ %>
                   <%  if (page.slug == "home") { %> 
                    <li class="nav-item">
@@ -90,9 +88,7 @@
                     <% } %>
                     <% }); %>
                   <% if (user) { %>
-                   <li class="nav-item">
-                          <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="/users/logout"><%= user.username %> Sign Out</a>
-                  </li>
+                  
                   <% } else {%>
                    <li class="nav-item">
                           <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="/">Home</a>
@@ -106,11 +102,11 @@
                   <% } %>
                    <% if (user && (user.admin == 1 || user.admin == 2 ) ) { %>
                    <li>
-                    <div class="dropdown show">
-                      <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Admin
+                    <div class="dropdown1">
+                      <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1 dropbtn2" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Joko Prabowo
                       </a>
-                        <div class="dropdown-menu">
+                        <div class="dropdown-content1">
                         <a class="dropdown-item" href="/admin/accounts/<%= user._id %>">My Account</a>
                         <a class="dropdown-item" href="/admin/products">Ads</a>
                         <a class="dropdown-item" href="/admin/chats">Message</a>
@@ -128,16 +124,10 @@
                           <input id="caritext" class="form-control mr-sm-2 my-2 my-sm-0" type="text" placeholder="Search" aria-label="Search">
                           <button class="btn btn-outline-secondary my-2 my-sm-0" type="button" onClick="searching()" id="cari" value="Cari"><i class="fas fa-search"></i></button>
                         </form>
-                  </li>
-              
-        
-        
-        
+                  </li>    
         </ul>
     </div>  
 
-         
-          
         </div>
     </div>
 </nav>

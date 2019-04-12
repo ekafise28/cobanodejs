@@ -16,7 +16,6 @@ const cookieParser = require('cookie-parser');
 //   .set('view engine', 'ejs')
 //   .get('/', (req, res) => res.render('index'))
 //   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
-
   
 const mongoDB = "mongodb://heroku_login123:Ayam!123@ds123196.mlab.com:23196/heroku_qgkt37l7";
 //const mongoDB = "mongodb://localhost/shoponline"
