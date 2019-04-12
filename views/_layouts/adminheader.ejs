@@ -65,8 +65,8 @@
                     <% } %>
                     <% }); %>
                   <% if (user) { %>
-                   <li class="nav-item">
-                    <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1 " href="/users/logout">logout</a>
+                  <li class="nav-item">
+                    <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1 " href="/">Home</a>
                   </li>
                   <% } else {%>
                    <li class="nav-item">
@@ -76,20 +76,24 @@
                     <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="/users/register">Register</a>
                     </li>
                      <li class="nav-item">
-                    <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="/users/login">Log in</a>
+                    <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="/users/login">Sign In</a>
                     </li>
                   <% } %>
                     <% if (user && (user.admin == 1 || user.admin == 2 ) ) { %>
 
                     <div class="dropdown show">
                       <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Admin
+                       <div style="color: blue"><b>Admin<b></div>
                       </a>
                       <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/admin/categories">CATEGORY</a>
-                        <a class="dropdown-item" href="/admin/products/<%= user._id %>">PRODUCT</a>
-                        <a class="dropdown-item" href="/admin/accounts/<%= user._id %>">USER</a>
-                        <a class="dropdown-item" href="/admin/chats/<%= user.email %>">CHAT</a>
+                        <a class="dropdown-item" href="/admin/accounts/<%= user._id %>">My Account</a>
+                        <a class="dropdown-item" href="/admin/products">Ads</a>
+                        <a class="dropdown-item" href="/admin/chats">Message</a>
+                        <a class="dropdown-item" href="#">Favorite</a>
+                        <hr></hr>
+                        <a class="dropdown-item" href="/users/logout">Sign Out</a>
+                  </li>
+                        
                       </div>
                     </div>
 
@@ -118,7 +122,7 @@
         <input id="caritext" class="form-control mr-sm-2 my-2 my-sm-0" type="text" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-secondary my-2 my-sm-0" type="button" onClick="searching()" id="cari" value="Cari"><i class="fas fa-search"></i></button>
       </form>
-       
+
       </div>
     </div>
   </nav>
@@ -143,16 +147,12 @@
 
    <div class="col-lg-8 mx-auto">  
     <ul class="nav nav-tabs">
-      <li><a href="/admin/pages">HOME</a></li>
-      <li><a href="/admin/products/%>">ADS</a></li>
-      <li><a href="/admin/chats/<%= user.email %>">MESSAGE</a></li>
-      <li><a href="/admin/accounts/<%= user._id %>">SETTING</a></li>
-      
+      <li style="padding-right: 30px;"><h3><a href="/admin/products/%>" style="color: grey;">ADS</a></h3></li>
+      <li style="padding-right: 30px;"><h3><a href="/admin/chats/<%= user.email %>" style="color: grey;">MESSAGE</a></h3></li>
+      <li style="padding-right: 30px;"><h3><a href="/admin/accounts/<%= user._id %>" style="color: grey;">SETTING</a></h3></li>
     </ul>
   </div>
-
    
-
 
         <%- messages('messages', locals) %>
         <% if (errors) {%>

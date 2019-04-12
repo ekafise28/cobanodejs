@@ -154,7 +154,7 @@ router.get("/login", function(req, res) {
 router.post("/login", function(req, res, next) {
   var emailaccount = req.body.username;
   passport.authenticate("local", {
-    successRedirect: "/admin/pages", 
+    successRedirect: "/admin/products", 
     failureRedirect: "/users/login",
     failureFlash: true,
   })(req, res, next);

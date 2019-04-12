@@ -91,7 +91,7 @@
                     <% }); %>
                   <% if (user) { %>
                    <li class="nav-item">
-                          <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="/users/logout">Hi, <%= user.username %> ( logout )</a>
+                          <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="/users/logout"><%= user.username %> Sign Out</a>
                   </li>
                   <% } else {%>
                    <li class="nav-item">
@@ -101,7 +101,7 @@
                           <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="/users/register">Register</a>
                    </li>
                    <li class="nav-item">
-                          <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="/users/login">Log in</a>
+                          <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="/users/login">Sign In</a>
                    </li>
                   <% } %>
                    <% if (user && (user.admin == 1 || user.admin == 2 ) ) { %>
@@ -110,12 +110,13 @@
                       <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Admin
                       </a>
-                      <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/admin/categories">Category</a>
-                        <a class="dropdown-item" href="/admin/products/">Product</a>
-                        <a class="dropdown-item" href="/admin/accounts/<%= user._id %>">User</a>
-                        <a class="dropdown-item" href="/admin/chats/<%= user.email %>">Chat</a>
-                      </div>
+                        <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/admin/accounts/<%= user._id %>">My Account</a>
+                        <a class="dropdown-item" href="/admin/products">Ads</a>
+                        <a class="dropdown-item" href="/admin/chats">Message</a>
+                        <a class="dropdown-item" href="#">Favorite</a>
+                        
+                        <a class="dropdown-item" href="/users/logout">Sign Out</a>
                     </div>
                   </li>
                   <% }%>  

@@ -95,7 +95,35 @@
       </div>
     </div>
   </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <div style="color:grey;"><b>SOCIAL MEDIA</b></div>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+          
+                    <form method="post" action="/admin/accounts/edit-account/<%= accounts.id %>" enctype="multipart/form-data">
 
+                    <div class="form-group">
+                      <label for=""></b>Facebook</b></label>
+                      <input type="text" class="form-control" name="facebook" value="<%= accounts.facebook %>" placeholder="Facebook">
+                    </div>
+
+                    <div class="form-group">
+                      <label for=""><b>Instagram</b></label>
+                      <input type="text" class="form-control" name="instagram" value="<%= accounts.instagram %>" placeholder="Instagram">
+                    </div>
+                
+                    <input type="hidden" name="pimage" value="<%= accounts.image %>">
+                    <button class="btn btn-primary">Simpan</button>
+                  </form>
+
+      </div>
+    </div>
   </div>
 </div>
 
