@@ -17,7 +17,7 @@
 
 hr { 
   width:60%; 
-  height:0.5px; 
+  height:0.001rem; 
   background: #676a6c;
   margin-top: -0.4rem;
   margin-bottom: 0rem;
@@ -32,12 +32,12 @@ hr {
       <div class="box1">
 					<a class="img-link img-wrap w_hover"  href="/products/<%= c.slug %>"> 
           <img  alt="" src="/cat_images/<%= c.id %>/<%= c.image %>" style="width: 300px;height: auto;margin-top: 20px;"><span class="link-icon"></span></a> 
-      <div class="">
+        
         <div class="d-flex flex-column text-center" style="margin-top: 15px;">
               <a class="text-dark h5"  href="/products/<%= c.slug %>"><b><%= c.title %></b></a>
-              <a class="text-secondary h5 mb-0"  href="/products/<%= c.slug %>"><hr><b><%= c.judul %></hr></b></a>
+              <a class="text-secondary h5 mb-0"  href="/products/<%= c.slug %>"><b><hr><%= c.judul %></hr></b></a>
               <a class="text-secondary h5 mt-0"  href="/products/<%= c.slug %>"><b><%= c.judul2 %></b></a>
-        </div>
+        
       </div>
       </div>
     </div>
