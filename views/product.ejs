@@ -22,6 +22,8 @@
       font-size: 55px;
       color: red;
     }
+
+
    </style>
 
       <div class="wrapper wrapper-content animated fadeInRight">
@@ -33,7 +35,7 @@
                         <div class="ibox-content">
 
                             <div class="row">
-                                <div class="col-md-5">
+                                <div class="col-md-5 mr-5 ml-5">
                                 <!--Carousel Wrapper-->
                                         <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails" data-ride="carousel">
                                           <!--Slides-->
@@ -85,13 +87,11 @@
                                                   src="/product_images/<%= p.id %>/<%= p.image %>" class="img-fluid"></li>
                                             </ol>
                                           </div>
+                                          <br><br><br>
                                         </div>
-                                       
                                   <!--/.Carousel Wrapper-->
-
                                 </div>
-                                <div class="col-md-7">
-
+                                <div class="col-md-4">
                                     <h2 class="font-bold m-b-xs">
                                        <b><%= p.seniman %></b>
                                     </h2>
@@ -102,13 +102,11 @@
                                     <div class="m-t-md">
                                         <h2><p><i><div class="price"><%= p.price  %></div> </i></p></h2>
                                     </div>
-                                  
                                     <h4>Description</h4>
                                     <div class="small text-muted">
                                         <%= p.desc  %>
                                     </div>
                                      <hr>
-
                                     <div>
                                         <div>
                                             <a class="btn btn-primary btn-sm" href="tel:+62123456789" target="_blank"><i class="fa fa-phone"></i> <%= p.phone %></a>
