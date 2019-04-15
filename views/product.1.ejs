@@ -1,0 +1,96 @@
+<% include _layouts/header %>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+   
+	  <link rel="stylesheet" href="/css/productdetail.css">
+	
+		<!--<div class="card">-->
+			<div class="container-fliud">
+				<div class="wrapper row-5">
+					<div class="preview col-md-7" style="text-align: center">
+						
+						<div class="preview-pic tab-content">
+						  <div class="tab-pane active" id="pic-1"><img src="/product_images/<%= p.id %>/<%= p.image %>" style="width: auto;height:400px;margin-top: 25px;"/></div>
+						  <div class="tab-pane" id="pic-2"><img src="/product_images/<%= p.id %>/<%= p.image %>" style="width: auto;height:400px;margin-top: 25px;"/></div>
+						  <div class="tab-pane" id="pic-3"><img src="/product_images/<%= p.id %>/<%= p.image %>" style="width: auto;height:400px;margin-top: 25px;"/></div>
+						  <div class="tab-pane" id="pic-4"><img src="/product_images/<%= p.id %>/<%= p.image %>" style="width: auto;height:400px;margin-top: 25px;"/></div>
+						  <div class="tab-pane" id="pic-5"><img src="/product_images/<%= p.id %>/<%= p.image %>" style="width: auto;height:400px;margin-top: 25px;"/></div>
+						</div>
+						<ul class="preview-thumbnail nav nav-tabs">
+						  <li><a data-target="#pic-1" data-toggle="tab"><img src="/product_images/<%= p.id %>/<%= p.image %>"/></a></li>
+						  <li><a data-target="#pic-2" data-toggle="tab"><img src="/product_images/<%= p.id %>/<%= p.image %>"/>
+						  <li><a data-target="#pic-3" data-toggle="tab"><img src="/product_images/<%= p.id %>/<%= p.image %>"/>
+						  <li><a data-target="#pic-4" data-toggle="tab"><img src="/product_images/<%= p.id %>/<%= p.image %>"/>
+						  <li><a data-target="#pic-5" data-toggle="tab"><img src="/product_images/<%= p.id %>/<%= p.image %>"/>
+						</ul>
+					</div>
+          
+					<div class="col-md-6" style="margin-top: 20px;">
+            <h2 class=""><b><%= p.seniman %></b></h2>
+            <h3 class=""><i>"<%= p.title  %>"</i></h3>
+						<h5 class=""><%= p.ukuran %></h5>
+						<p class=""><%= p.media %> </p>
+						<p class=""><%= p.tahun %> </p> 
+						
+      			<p class="product-description">Tes description Tes description Tes description Tes description Tes description </p>
+            <p class="product-description"><i class="far fa-address-book tulisanProduk"></i> <%= p.sellername %></p>
+            <p class="product-description"><i class="fas fa-paint-brush tulisanProduk"></i> <%= p.galery %></p>
+						<% if(loggedIn == 0){ %>
+            <p class="product-description"><i class="fas fa-phone tulisanProduk"></i> <%= p.phone %></p>
+            <p class="product-description"><i class="far fa-sticky-note tulisanProduk"></i> <%= p.sms %></p>
+            <p class="product-description"><i class="fa fa-whatsapp tulisanProduk"></i> <%= p.wa %></p>
+            <p class="product-description"><i class="far fa-envelope tulisanProduk"></i> admin@admin.com</p>
+ 				  	<p><i><div class="price"><%= p.price  %></div> </i></p>
+						 <div><i class="fas fa-eye tulisanProduk"></i> 18    <i class="fas fa-heart tulisanProduk"></i> 5     <i class="fas fa-phone tulisanProduk"></i> 31 </div>
+
+						<% } else { %>
+							<p class="product-description"><i class="fa fa-phone"></i><a href="\users\login">-Please Login-</a></p>
+							<p class="product-description"><i class="far fa-sticky-note"></i><a href="\users\login">-Please Login-</a></p>
+							<p class="product-description"><i class="fa fa-whatsapp"></i><a href="\users\login">-Please Login-</a></p>
+							<p class="product-description"><i class="far fa-envelope"></i><a href="\users\login">-Please Login-</a></p>
+							<p class="price"><span><i class="fas fa-donate"></i> IDR <a href="\users\login">-Please Login-</a></span></p>
+						<% } %>
+    
+							<!--p>Kirim Pesan :</p-->
+							<% if(loggedIn==0){ %>
+								  <div>
+										<!-- textarea name="chatting" class="form-control" cols="10" rows="10" placeholder="pesan"></textarea -->
+									</div>
+							<% } else { %>
+										<p><span></i><a href="\users\login">-Please Login-</a></span></p>
+							<% } %>
+					
+					</div>
+				</div>
+			</div>
+		<!--</div>-->
+
+   <script type="text/javascript">
+      
+     $(document).ready(function () {
+  
+      
+               var num = $('div.price').text()
+            num = addPeriod(num);
+            $('div.price').text('IDR '+num)
+    
+});
+
+
+function addPeriod(nStr)
+{
+    nStr += '';
+    x = nStr.split('.');
+    x1 = x[0];
+    x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + '.' + '$2');
+    }
+    return x1 + x2;
+}
+
+      </script>
+  
+<% include _layouts/footer %>
