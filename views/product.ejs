@@ -69,21 +69,24 @@
                                             <span class="carousel-control-next-icon" style="margin-right: -60px;"></span>
                                             <span class="sr-only">Next</span>
                                           </a>
-                                          <!--/.Controls-->
+                                           <!--/.Controls-->
+                                          <div>
+                                            <ol class="carousel-indicators" style="bottom:auto;margin-top:1rem">
+                                              <li data-target="#carousel-thumb" data-slide-to="0" class="active" style="width:auto; "> <img class="d-block w-100"  
+                                                  src="/product_images/<%= p.id %>/<%= p.image %>" class="img-fluid"></li>
+                                              <li data-target="#carousel-thumb" data-slide-to="1" style="width:auto; "><img class="d-block w-100"
+                                                  src="/product_images/<%= p.id %>/<%= p.image %>" class="img-fluid">
+                                              </li>
+                                              <li data-target="#carousel-thumb" data-slide-to="2" style="width:auto; "><img class="d-block w-100"
+                                                  src="/product_images/<%= p.id %>/<%= p.image %>" class="img-fluid"></li>
+                                                  <li data-target="#carousel-thumb" data-slide-to="2" style="width:auto; "><img class="d-block w-100"
+                                                  src="/product_images/<%= p.id %>/<%= p.image %>" class="img-fluid"></li>
+                                                  <li data-target="#carousel-thumb" data-slide-to="2" style="width:auto; "><img class="d-block w-100"
+                                                  src="/product_images/<%= p.id %>/<%= p.image %>" class="img-fluid"></li>
+                                            </ol>
+                                          </div>
                                         </div>
-                                          <ol class="carousel-indicators" style="bottom:auto;margin-top:1rem">
-                                            <li data-target="#carousel-thumb" data-slide-to="0" class="active" style="width:auto; "> <img class="d-block w-100"  
-                                                src="/product_images/<%= p.id %>/<%= p.image %>" class="img-fluid"></li>
-                                            <li data-target="#carousel-thumb" data-slide-to="1" style="width:auto; "><img class="d-block w-100"
-                                                src="/product_images/<%= p.id %>/<%= p.image %>" class="img-fluid">
-                                            </li>
-                                            <li data-target="#carousel-thumb" data-slide-to="2" style="width:auto; "><img class="d-block w-100"
-                                                src="/product_images/<%= p.id %>/<%= p.image %>" class="img-fluid"></li>
-                                                <li data-target="#carousel-thumb" data-slide-to="2" style="width:auto; "><img class="d-block w-100"
-                                                src="/product_images/<%= p.id %>/<%= p.image %>" class="img-fluid"></li>
-                                                <li data-target="#carousel-thumb" data-slide-to="2" style="width:auto; "><img class="d-block w-100"
-                                                src="/product_images/<%= p.id %>/<%= p.image %>" class="img-fluid"></li>
-                                          </ol>
+                                       
                                   <!--/.Carousel Wrapper-->
 
                                 </div>
@@ -108,10 +111,10 @@
 
                                     <div>
                                         <div>
-                                            <a class="btn btn-primary btn-sm" href="tel:+62123456789" target="_blank"><i class="fa fa-phone"></i><%= p.phone %></a>
-                                            <a class="btn btn-white btn-sm" href="sms:+62123456789"><i class="far fa-sticky-note" target="_blank"></i><%= p.sms %></a>
-                                            <a class="btn btn-white btn-sm" href="https://api.whatsapp.com/send?phone=6281019371111" target="_blank"><i class="fa fa-whatsapp"></i><%= p.wa %></a>
-                                            <a class="btn btn-white btn-sm" href="mailto:abc@example.com?subject = Feedback&body = Message" target="_blank"><i class="fa fa-envelope"></i>admin@admin.com</a>
+                                            <a class="btn btn-primary btn-sm" href="tel:+62123456789" target="_blank"><i class="fa fa-phone"></i> <%= p.phone %></a>
+                                            <a class="btn btn-white btn-sm" href="sms:+62123456789"><i class="fas fa-sms" target="_blank"></i> <%= p.sms %></a>
+                                            <a class="btn btn-white btn-sm" href="https://api.whatsapp.com/send?phone=6281019371111" target="_blank"><i class="fa fa-whatsapp"></i> <%= p.wa %></a>
+                                            <a class="btn btn-white btn-sm" href="mailto:abc@example.com?subject = Feedback&body = Message" target="_blank"><i class="fa fa-envelope"></i> seni@seniman.com</a>
                                         </div>
                                     </div>
                                 </div>
