@@ -3,6 +3,27 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
    
 
+   <style>
+   .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+     
+      background-image: none;
+    }
+
+    .carousel-control-next-icon:after
+    {
+      content: '>';
+      font-size: 55px;
+      color: red;
+    }
+
+    .carousel-control-prev-icon:after {
+      content: '<';
+      font-size: 55px;
+      color: red;
+    }
+   </style>
+
       <div class="wrapper wrapper-content animated fadeInRight">
 
             <div class="row">
@@ -40,12 +61,12 @@
                                           </div>
                                           <!--/.Slides-->
                                           <!--Controls-->
-                                          <a class="carousel-control-prev" style="margin-left: -25px;" href="#carousel-thumb" role="button" data-slide="prev">
-                                            <span class="carousel-control-prev-icon" style="margin-left: -60px;background: black no-repeat center center;"></span>
+                                          <a class="carousel-control-prev" style="margin-left: -35px;" href="#carousel-thumb" role="button" data-slide="prev">
+                                            <span class="carousel-control-prev-icon" style="margin-left: -60px;"></span>
                                             <span class="sr-only">Previous</span>
                                           </a>
                                           <a class="carousel-control-next" style="margin-right: -25px;" href="#carousel-thumb" role="button" data-slide="next">
-                                            <span class="carousel-control-prev-icon" style="margin-right: -60px;background: black  no-repeat center center;"></span>
+                                            <span class="carousel-control-next-icon" style="margin-right: -60px;"></span>
                                             <span class="sr-only">Next</span>
                                           </a>
                                           <!--/.Controls-->
