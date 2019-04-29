@@ -2,7 +2,6 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
    
-
    <style>
    .carousel-control-prev-icon,
     .carousel-control-next-icon {
@@ -23,7 +22,6 @@
       color: red;
     }
 
-
    </style>
 
       <div class="wrapper wrapper-content animated fadeInRight">
@@ -35,7 +33,7 @@
                         <div class="ibox-content">
 
                             <div class="row">
-                                <div class="col-md-5 mr-5 ml-5">
+                                <div class="col-md-5 mr-3 ml-3">
                                 <!--Carousel Wrapper-->
                                         <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails" data-ride="carousel">
                                           <!--Slides-->
@@ -95,12 +93,12 @@
                                     <h2 class="font-bold m-b-xs">
                                        <b><%= p.seniman %></b>
                                     </h2>
-                                     <h3><i>"<%= p.title  %>"</i></h3>
+                                     <h4><i>"<%= p.title  %>"</i></h4>
                                      <h5><%= p.ukuran %></h5>
-						                         <p><%= p.media %> </p>
-						                         <p><%= p.tahun %> </p> 
+						                         <h5><%= p.media %> </h5>
+						                         <h5><%= p.tahun %> </h5> 
                                     <div class="m-t-md">
-                                        <h2><p><i><div class="price"><%= p.price  %></div> </i></p></h2>
+                                        <h2><b><div class="price"> 20.000.000  </div></p></p></h3>
                                     </div>
                                     <h4>Description</h4>
                                     <div class="small text-muted">
@@ -109,10 +107,16 @@
                                      <hr>
                                     <div>
                                         <div>
-                                            <a class="btn btn-primary btn-sm" href="tel:+62123456789" target="_blank"><i class="fa fa-phone"></i> <%= p.phone %></a>
-                                            <a class="btn btn-white btn-sm" href="sms:+62123456789"><i class="fas fa-sms" target="_blank"></i> <%= p.sms %></a>
-                                            <a class="btn btn-white btn-sm" href="https://api.whatsapp.com/send?phone=6281019371111" target="_blank"><i class="fa fa-whatsapp"></i> <%= p.wa %></a>
-                                            <a class="btn btn-white btn-sm" href="mailto:abc@example.com?subject = Feedback&body = Message" target="_blank"><i class="fa fa-envelope"></i> seni@seniman.com</a>
+                                            <a class="btn btn-white btn-sm mb-2" style="border: 1px solid grey; width:140px;" href="tel:+62123456789" target="_blank"><i class="fa fa-phone"></i> <%= p.phone %></a>
+                                        </div>
+                                        <div>
+                                            <a class="btn btn-white btn-sm mb-2" style="border: 1px solid grey; width:140px;" href="sms:+62123456789"><i class="fas fa-sms" target="_blank"></i> <%= p.sms %></a>
+                                        </div>
+                                        <div>
+                                            <a class="btn btn-white btn-sm mb-2" style="border: 1px solid grey; width:140px;" href="https://api.whatsapp.com/send?phone=6281019371111" target="_blank"><i class="fa fa-whatsapp"></i> <%= p.wa %></a>
+                                        </div>
+                                        <div>
+                                            <a class="btn btn-white btn-sm mb-2" style="border: 1px solid grey;"  href="mailto:abc@example.com?subject = Feedback&body = Message" target="_blank"><i class="fa fa-envelope"></i> seni@seniman.com</a>
                                         </div>
                                     </div>
                                 </div>

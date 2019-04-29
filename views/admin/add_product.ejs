@@ -1,9 +1,10 @@
 <%- include('../_layouts/adminheader') %>
 
-<div class="ibox-content col-lg-8 mx-auto">
-<div class="jumbotron" style="text-align:center;margin-bottom: 10px;">
-        <h1><b>Product</b></h1>  
-  </div>
+<div class="stepsBox">
+                <div class="claimSteps" id="stepOne">
+                     <h1><b>PRODUCT</b></h1>  
+                </div>
+            </div>
 
 
 <form method="post" action="/admin/products/add-product" enctype="multipart/form-data">
@@ -96,6 +97,13 @@
     <input type="text" class="form-control" name="address" value="<%= address %>" placeholder="Address">
   </div>  
  
+ <div class="form-group">
+    <label for="">Country</label>
+    <select name="country" class="form-control">
+      <!---->
+    </select>
+  </div>
+
   <div class="form-group">
     <label for="">Province</label>
     <select id="province" name="province" class="form-control">
@@ -108,7 +116,7 @@
   </div>
 
     <div class="form-group">
-    <label for="">Kota/Kabupaten</label>
+    <label for="">City</label>
     <select id="kota_kab" name="kota_kab" class="form-control">
       <!---->
     </select>
@@ -128,7 +136,7 @@
     </select>
   </div>
 
-  <button class="btn btn-primary">Submit</button>
+  <button class="btn btn-primary" style="border: 1.5px solid grey;">Submit</button>
 </form>
 
 <script>

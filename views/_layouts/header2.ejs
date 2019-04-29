@@ -25,17 +25,18 @@
     <meta name="theme-color" content="#ffffff">
 
   <title>Joeda Art</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css" />
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/slick.css">
-  <link rel="stylesheet" href="/css/slick-theme.css">
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+ <link rel="stylesheet" href="/css/style.css">
   
-
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
    <link href="//s.w.org/wp-includes/css/dashicons.css?20150710" rel="stylesheet" type="text/css">
+  
+
+ 
+<!------ Include the above in your HEAD tag ---------->
   <title>
     <%=  %>
   </title>
@@ -127,46 +128,9 @@
                   <% }%>  
                   <li>
                       <div class="dropdown1">
-                        <a href="#" data-toggle="popover" data-placement="bottom" class="btn btn-default dropbtn1 my-2 my-sm-0 mr-1" style="color:black" title="Find" data-content="">Filter<b class="caret"></b></a>
+                        <a href="#" data-toggle="dropdown" class="btn btn-default dropbtn1 my-2 my-sm-0 mr-1" style="color:black" >Filter<b class="caret"></b></a>
                       </div>
                   </li>
-                    <div id="popover_content_wrapper" style="display: none">
-                          
-                          
-                        <div>
-                              Country :
-                              <select class="browser-default custom-select">
-                              <option selected>Country</option>
-                              <option value="1">Indonesia</option>
-                              <option value="2">Afghanistan</option>
-                              <option value="3">Algeria</option>
-                              <option value="4">....</option>
-                            </select> 
-                        </div>
-
-                          
-                          <div>Province :
-                            <select class="browser-default custom-select">
-                              <option selected>Province</option>
-                              <option value="1">province1</option>
-                              <option value="2">province2</option>
-                              <option value="3">province3</option>
-                            </select>
-                          </div>
-                          
-                          <div>City :
-                              <select class="browser-default custom-select">
-                              <option selected>City</option>
-                              <option value="1">city1</option>
-                              <option value="2">city2</option>
-                              <option value="3">city3</option>
-                            </select>
-                          </div>
-                          <div class="mt-2">
-                                                             <button class="btn btn-default dropbtn1 my-2 my-sm-0" style="color:black" type="button" onClick="searching()" id="cari2" value="Cari"><i class="fas fa-search"></i> Searching</button>
-                                                     </div>
-                          
-                    </div>
                   <li class="nav-item">
                         <form class="d-flex flex-nowrap align-items-center"  id="forma1">          
                           <input id="caritext" class="form-control mr-sm-2 my-2 my-sm-0" type="text" placeholder="Search" aria-label="Search">
@@ -184,15 +148,6 @@
       var n1 = document.getElementById("caritext").value;
       location.href =  "/search/" + n1 ;            
     };
-
-    $(document).ready(function(){
-      $('[data-toggle="popover"]').popover({ 
-    html : true,
-    content: function() {
-      return $('#popover_content_wrapper').html();
-    }
-  });
-  });
   </script>
 </div>
 </header>

@@ -17,8 +17,8 @@ const cookieParser = require('cookie-parser');
 //   .get('/', (req, res) => res.render('index'))
 //   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
   
-const mongoDB = "mongodb://heroku_login123:Ayam!123@ds123196.mlab.com:23196/heroku_qgkt37l7";
-//const mongoDB = "mongodb://localhost/shoponline"
+//const mongoDB = "mongodb://heroku_login123:Ayam!123@ds123196.mlab.com:23196/heroku_qgkt37l7";
+const mongoDB = "mongodb://localhost/shoponline"
 mongoose.connect(mongoDB, {
   useNewUrlParser: true
 });
@@ -52,7 +52,6 @@ Page.find({})
   });
 
   // var Product = require("./models/products");
-
   // // Get all pages to pass to header.ejs
   // Product.find({})
   //   .sort({ sorting: 1 })
@@ -172,6 +171,7 @@ const adminProvinces = require("./routes/admin_provinces.js");
 const searchs = require("./routes/search.js");
 const adminaccounts = require("./routes/accounts.js");
 const adminchats = require("./routes/chats.js");
+const adminfavourites = require("./routes/favourites.js");
  
 // setup links
 app.use("/admin/pages", adminPages);
@@ -180,6 +180,7 @@ app.use("/admin/products", adminProducts);
 app.use("/admin/provinces", adminProvinces);
 app.use("/admin/accounts", adminaccounts);
 app.use("/admin/chats",adminchats)
+app.use("/admin/favourites",adminfavourites)
 app.use("/products", products);
 app.use("/cart", cart);
 app.use("/users", users);

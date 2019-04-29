@@ -3756,7 +3756,7 @@ code {
   padding: 15px 20px 20px 20px;
   border-color: #e7eaec;
   border-image: none;
-  border-style: solid solid none;
+  /*border-style: solid solid none;*/
   border-width: 1px 0;
 }
 .ibox-footer {
@@ -8248,12 +8248,14 @@ body.md-skin {
 .claimSteps {
     padding-top: 1px;
     padding-bottom: 1px;
-    width: 200px;
+    width: 235px;
     background-color: #e0e0e0;;
     color: black;
     text-align: center;
     font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    border-radius: 3px;}
+    border-radius: 3px;
+    border: 1.5px solid grey;
+  }
 
 .stepsBox {
     padding-bottom: 10px;
@@ -8267,9 +8269,10 @@ body.md-skin {
   color: black;
   text-align: center;
   font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  border-radius: 3px;}
+  border-radius: 3px;
+}
 
-  .claimStepsLogin {
+.claimStepsLogin {
     padding-top: 8px;
     padding-bottom: 1px;
     width: 200px;
@@ -8277,8 +8280,9 @@ body.md-skin {
     color: black;
     text-align: center;
     font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    border-radius: 3px;}
-
+    border-radius: 3px;
+    border: 1.5px solid grey;
+}
 
 /* Dropdown Button */
 .dropbtn1 {
@@ -8286,7 +8290,7 @@ body.md-skin {
   color: blue;
   padding: auto;
   font-size: 16px;
-  border: 0.9px solid grey;
+  border: 1.5px solid grey;
 }
 
 .dropbtn2 {
@@ -8322,5 +8326,8 @@ body.md-skin {
 }
 .dropdown-content1 a:hover {background-color: #ddd;}
 .dropdown1:hover .dropdown-content1 {display: block;}
-.dropdown1:hover .dropbtn1 {background-color: #EBEBEB;}
+.dropdown1:hover .dropbtn1 {
+    background-color: #EBEBEB;
+    border: 1.5px solid grey;
+  }
 .dropdown1:hover .dropbtn2 {background-color: #EBEBEB;}

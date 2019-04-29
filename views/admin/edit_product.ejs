@@ -3,13 +3,13 @@
 
 <div class="ibox-content col-lg-8 mx-auto">
 
-<a href="/admin/products" class="btn btn-primary">Back to all products</a>
-<a href="#" class="btn btn-danger col-lg-4 ">Sundul</a><br><br>
-<div class="jumbotron" style="text-align:center;margin-bottom: 10px;">
-        <h1><b>Edit Products</b></h1>  
-  </div>
-
-
+<a href="/admin/products" class="btn btn-primary" style="border: 1.5px solid grey;">Back</a>
+<a href="#" class="btn btn-danger col-lg-2"  style="border: 1.5px solid grey;">Sundul</a><br><br>
+<div class="stepsBox">
+                <div class="claimSteps" id="stepOne">
+                     <h1><b>EDIT</b></h1>  
+                </div>
+            </div>
 
 <form method="post" action="/admin/products/edit-product/<%= id %>" enctype="multipart/form-data">
 
@@ -33,7 +33,7 @@
   </div>
 
   <div class="form-group">
-    <label for="">seniman</label>
+    <label for="">Artist</label>
     <input type="text" class="form-control" name="seniman" value="<%= seniman %>" placeholder="seniman">
   </div>
 
@@ -105,6 +105,14 @@
   </div>  
 
   <div class="form-group">
+    <label for="">Country</label>
+    <select name="country" class="form-control">
+      <!---->
+    </select>
+  </div>
+ 
+
+  <div class="form-group">
     <label for="">Province</label>
     <select name="province" class="form-control">
       <!---->
@@ -112,7 +120,7 @@
   </div>
  
     <div class="form-group">
-    <label for="">Kota/Kabupaten</label>
+    <label for="">City</label>
     <select name="kota_kab" class="form-control">
       <!---->
     </select>
@@ -144,7 +152,7 @@
   </div>
 
   <input type="hidden" name="pimage" value="<%= image %>">
-  <button class="btn btn-primary">Submit</button>
+  <button class="btn btn-primary" style="border: 1.5px solid grey;">Submit</button>
 </form>
 
 <hr>

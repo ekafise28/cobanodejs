@@ -297,6 +297,7 @@ router.get("/edit-product/:id", isAdmin, function(req, res) {
         console.log(err);
         res.redirect("/admin/products");
       } else {
+        //var galleryDir = "public/product_images/" + pro._id + "/gallery";
         var galleryDir = "public/product_images/" + pro._id + "/gallery";
         var galleryImages = null;
 

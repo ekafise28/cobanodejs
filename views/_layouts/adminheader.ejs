@@ -61,11 +61,13 @@
                     <% }); %>
                   <% if (user) { %>
                   <li class="nav-item">
-                    <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1 " href="/">Home</a>
+                       <div class="dropdown1">
+                      <a class="btn btn-default dropbtn1 my-2 my-sm-0 mr-1" style="color:black" href="/">Home</a>
+                    </div>
                   </li>
                   <% } else {%>
                    <li class="nav-item">
-                    <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="/">Home</a>
+                    <a class="btn btn-default dropbtn1 my-2 my-sm-0 mr-1" href="/">Home</a>
                     </li>
                      <li class="nav-item">
                     <a class="btn btn-outline-secondary my-2 my-sm-0 mr-1" href="/users/register">Register</a>
@@ -80,10 +82,10 @@
                         <div><b>Joko Prabowo<b></div>
                       </a>
                       <div class="dropdown-content1">
-                        <a class="dropdown-item" href="/admin/accounts/<%= user._id %>">My Account</a>
-                        <a class="dropdown-item" href="/admin/products">Ads</a>
-                        <a class="dropdown-item" href="/admin/chats">Message</a>
-                        <a class="dropdown-item" href="#">Favorite</a>
+                        <a class="dropdown-item two" href="/admin/products">Ads</a>
+                        <a class="dropdown-item two" href="/admin/chats">Message</a>
+                        <a class="dropdown-item two" href="/admin/favourites">Favorite</a>
+                        <a class="dropdown-item two" href="/admin/accounts/<%= user._id %>">My Account</a>
                         <hr></hr>
                         <a class="dropdown-item" href="/users/logout">Sign Out</a>
                       </div>
@@ -111,7 +113,9 @@
 
         <form class="form-inline mt-2 mt-md-0" id="forma1">
         <input id="caritext" class="form-control mr-sm-2 my-2 my-sm-0" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-secondary my-2 my-sm-0" type="button" onClick="searching()" id="cari" value="Cari"><i class="fas fa-search"></i></button>
+        <div class="dropdown1">
+          <button class="btn btn-default dropbtn1 my-2 my-sm-0" style="color: grey" type="button" onClick="searching()" id="cari" value="Cari"><i class="fas fa-search"></i></button>
+        </div>
       </form>
 
       </div>
@@ -137,10 +141,10 @@
 
   <div class="col-lg-8 mx-auto">  
     <ul class="nav nav-tabs">
-      <li style="padding-right: 30px;"><h3><a href="/admin/products/%>" style="color: grey;">ADS</a></h3></li>
-      <li style="padding-right: 30px;"><h3><a href="/admin/chats/<%= user.email %>" style="color: grey;">MESSAGE</a></h3></li>
-      <li style="padding-right: 30px;"><h3><a href="/admin/chats/<%= user.email %>" style="color: grey;">FAVOURITE</a></h3></li>
-      <li style="padding-right: 30px;"><h3><a href="/admin/accounts/<%= user._id %>" style="color: grey;">SETTING</a></h3></li>
+      <li style="padding-right: 30px;"><h3><a href="/admin/products/%>" class="two" style="color: grey;">ADS</a></h3></li>
+      <li style="padding-right: 30px;"><h3><a href="/admin/chats/<%= user.email %>"class="two" style="color: grey;">MESSAGE</a></h3></li>
+      <li style="padding-right: 30px;"><h3><a href="/admin/favourites" class="two" style="color: grey;">FAVOURITE</a></h3></li>
+      <li style="padding-right: 30px;"><h3><a href="/admin/accounts/<%= user._id %>" class="two" style="color: grey;">MY ACCOUNT</a></h3></li>
     </ul>
   </div>
 
