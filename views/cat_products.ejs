@@ -70,18 +70,20 @@
 </head>
 
 <body>
-
-  <div class="container">
-    <div class="well well-sm float-right">
+  <div class="col-lg-12 my-3">
+    <div class="float-right">
         <div class="btn-group">
-            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list"></span>List</a> 
-            <a href="#" id="grid" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th"></span>Grid</a>
+            <a href="#" id="list" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-th-list"></span>List</a> 
+            <a href="#" id="grid" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-th"></span>Grid</a>
         </div>
     </div>
+  </div>
+  <div class="container" style=" max-width:90%;">
+    
     <div id="products" class="row view-group">
          <% products.forEach(function(p){ %>
 
-        <div class="item box1 col-xs-4 col-lg-4" style="margin-bottom: 20px;">
+        <div class="item box1 col-xs-4 col-lg-3" style="margin-bottom: 20px;">
             <div class="thumbnail" style="text-align: center;margin-bottom: 30px;margin-top: 20px;">
                 <a class="group list-group-image img-link img-wrap w_hover text-center"  href="/products/<%= p.category %>/<%= p.slug %>"> <img class="img-thumbnail img-fluid"  alt="" src="/product_images/<%= p.id %>/<%= p.image %>" style="width: auto; height:200px; text-align: center;"> <span class="link-icon"></span> </a> 
                 <div class="caption" style="text-align: center; font-family: Arial Bold;  line-height: 0.5;margin-top: 10px;">
@@ -113,13 +115,13 @@
     $('#list').click(function(event){event.preventDefault();
     $('#products .item').addClass('list-group-item');
     $('#products .item').removeClass('grid-group-item');
-    $('#products .item').removeClass('col-lg-4');
+    $('#products .item').removeClass('col-lg-3');
     });
     
     $('#grid').click(function(event){event.preventDefault();
     $('#products .item').removeClass('list-group-item');
     $('#products .item').addClass('grid-group-item');
-    $('#products .item').addClass('col-lg-4');
+    $('#products .item').addClass('col-lg-3');
     });
     
  
