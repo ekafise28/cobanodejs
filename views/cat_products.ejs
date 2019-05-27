@@ -1,39 +1,89 @@
-
 <% include _layouts/header %>
+ 
 
-
-<!-- new -->
-<style>
-    
-.column {
-  float: left;
-  width: 25%;
-  padding: 10px;
   
-}
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-</style>
+      <style>
+      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+      .glyphicon { margin-right:5px; }
+            .thumbnail
+            {
+                margin-bottom: 10px;
+                padding: 0px;
+                -webkit-border-radius: 0px;
+                -moz-border-radius: 0px;
+                border-radius: 0px;
+            }
 
-  <button onclick="listView()" style="float:right;"><i class="fa fa-bars"></i> List</button> 
-  <button onclick="gridView()" style="float:right;"><i class="fa fa-th-large"></i> Grid</button> 
-<!-- end -->
+            .item.list-group-item
+            {
+                float: none;
+                width: 100%;
+                background-color: #fff;
+                margin-bottom: 10px;
+            }
+            .item.list-group-item:nth-of-type(odd):hover,.item.list-group-item:hover
+            {
+                background: #428bca;
+            }
 
+            .item.list-group-item .list-group-image
+            {
+                margin-right: 10px;
+            }
+            .item.list-group-item .thumbnail
+            {
+                margin-bottom: 5px;
+            }
+            .item.list-group-item .caption
+            {
+                padding: 9px 9px 0px 9px;
+            }
+            .item.list-group-item:nth-of-type(odd)
+            {
+                background: #eeeeee;
+            }
 
-    <div id="products" class="row">
-      <% products.forEach(function(p){ %>
-        
-        <div class="column">
+            .item.list-group-item:before, .item.list-group-item:after
+            {
+                display: table;
+                content: " ";
+            }
 
-        <div class="item box1 col-xs-4" style="margin-bottom: 20px;">
-            <div class="thumbnail" style="text-align: center;margin-bottom: 30px;">
-                <a class="group list-group-image img-link img-wrap w_hover text-center"  href="/products/<%= p.category %>/<%= p.slug %>"> <img class="img-thumbnail img-fluid"  alt="" src="/product_images/<%= p.id %>/<%= p.image %>" style="width: auto; height:200px; text-align: center;margin-top: 15px;"> <span class="link-icon"></span> </a> 
-                
+            .item.list-group-item img
+            {
+                float: left;
+            }
+            .item.list-group-item:after
+            {
+                clear: both;
+            }
+            .list-group-item-text
+            {
+                margin: 0 0 11px;
+            }
+
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="well well-sm">
+        <div class="btn-group">
+            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list"></span>List</a> 
+            <a href="#" id="grid" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th"></span>Grid</a>
+        </div>
+    </div>
+    <div id="products" class="row view-group">
+         <% products.forEach(function(p){ %>
+
+        <div class="item box1 col-xs-4 col-lg-4" style="margin-bottom: 20px;">
+            <div class="thumbnail" style="text-align: center;margin-bottom: 30px;margin-top: 20px;">
+                <a class="group list-group-image img-link img-wrap w_hover text-center"  href="/products/<%= p.category %>/<%= p.slug %>"> <img class="img-thumbnail img-fluid"  alt="" src="/product_images/<%= p.id %>/<%= p.image %>" style="width: auto; height:200px; text-align: center;"> <span class="link-icon"></span> </a> 
                 <div class="caption" style="text-align: center; font-family: Arial Bold;  line-height: 0.5;margin-top: 10px;">
                         <h3 class="group inner list-group-item-heading" style="margin-bottom: 0px; font-size:17px"><%= p.seniman %></h3>
                         <h4 class="group inner  " style="margin-top: 5px;"><i>"<%= p.title %>"</i></h4>
@@ -46,118 +96,72 @@
                  </div>
                  <div class="row" style="text-align: center">
                         <div class="col-xs-12">
-                </div>
-             
-             
-             
+              </div>
              </div>
-            </div> 
+            </div>
         </div>
-
-        </div>
-      <% }); %>        
+          <% }); %>     
     </div>
+</div>
 
-    <% if (pages > 0) { %>
-                <ul class="pagination text-center">
-                    <% if (current == 1) { %>
-                        <li class="disabled"><a>First</a></li>
-                    <% } else { %>
-                        <li><a href="/products/painting/1">First</a></li>
-                    <% } %>
-                    <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
-                    <% if (i !== 1) { %>
-                        <li class="disabled"><a>...</a></li>
-                    <% } %>
-                    <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
-                        <% if (i == current) { %>
-                            <li class="active"><a><%= i %></a></li>
-                        <% } else { %>
-                            <li><a href="/products/painting/<%= i %>"><%= i %></a></li>
-                        <% } %>
-                        <% if (i == Number(current) + 4 && i < pages) { %>
-                            <li class="disabled"><a>...</a></li>
-                        <% } %>
-                    <% } %>
-                    <% if (current == pages) { %>
-                        <li class="disabled"><a>Last</a></li>
-                    <% } else { %>
-                        <li><a href="/products/<%= pages %>">Last</a></li>
-                    <% } %>
-                </ul>
-    <% } %>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+
 
 <script type="text/javascript">
-      $(document).ready(function () {
-        
-        
-        
-        $("#loanAmount1").on("new", null, function () {
-            var input = $("#loanAmount1").val();
-            var num = parseFloat(input).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,') + " $";
-            $("#loanAmount1Cur").html(num);
-        });
-
-        
-
- $('.far').click(function () {
-     console.log('fas0');
-      $('.far').toggleClass('far fa-heart fas fa-heart')  
+  $(document).ready(function() {
+    $('#list').click(function(event){event.preventDefault();
+    $('#products .item').addClass('list-group-item');
+    $('#products .item').removeClass('grid-group-item');
+    $('#products .item').removeClass('col-lg-4');
     });
     
-     $('.fas').click(function () {
-     console.log('fas1');
-      $('.fas').toggleClass('fas fa-heart far fa-heart')  
+    $('#grid').click(function(event){event.preventDefault();
+    $('#products .item').removeClass('list-group-item');
+    $('#products .item').addClass('grid-group-item');
+    $('#products .item').addClass('col-lg-4');
     });
+    
+ 
+ 
+     $("#loanAmount1").on("new", null, function () {
+                  var input = $("#loanAmount1").val();
+                  var num = parseFloat(input).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,') + " $";
+                  $("#loanAmount1Cur").html(num);
+              });
 
-     <% products.forEach(function(p){ %>  
-            var num = $('div.<%= p.id %>').text()
-            num = addPeriod(num);
-            $('div.<%= p.id %>').text('IDR '+num)
-     <% }); %>     
-       
+              $('.far').click(function () {
+                  console.log('fas0');
+                    $('.far').toggleClass('far fa-heart fas fa-heart')  
+                  });
+                  
+                  $('.fas').click(function () {
+                  console.log('fas1');
+                    $('.fas').toggleClass('fas fa-heart far fa-heart')  
+                  });
 
-});
+                  <% products.forEach(function(p){ %>  
+                          var num = $('div.<%= p.id %>').text()
+                          num = addPeriod(num);
+                          $('div.<%= p.id %>').text('IDR '+num)
+                  <% }); %>     
 
-function addPeriod(nStr)
-{
-    nStr += '';
-    x = nStr.split('.');
-    x1 = x[0];
-    x2 = x.length > 1 ? '.' + x[1] : '';
-    var rgx = /(\d+)(\d{3})/;
-    while (rgx.test(x1)) {
-        x1 = x1.replace(rgx, '$1' + '.' + '$2');
-    }
-    return x1 + x2;
-}
-
-var elements = document.getElementsByClassName("column");
-
-// Declare a loop variable
-var i;
-
-// List View
-function listView() {
-  for (i = 0; i < elements.length; i++) {
-    elements[i].style.width = "100%";
-
-  }
-}
-
-// Grid View
-function gridView() {
-  for (i = 0; i < elements.length; i++) {
-    elements[i].style.width = "25%";
-  
-  }
-
-}
+ 
+  });
 
 
+    function addPeriod(nStr)
+              {
+                  nStr += '';
+                  x = nStr.split('.');
+                  x1 = x[0];
+                  x2 = x.length > 1 ? '.' + x[1] : '';
+                  var rgx = /(\d+)(\d{3})/;
+                  while (rgx.test(x1)) {
+                      x1 = x1.replace(rgx, '$1' + '.' + '$2');
+                  }
+                  return x1 + x2;
+              }
 
-
-      </script>
-
-<% include _layouts/footer %>
+</script>
 

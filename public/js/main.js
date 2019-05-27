@@ -34,7 +34,7 @@ $(function() {
             xhr.send();
       };
   
-      getJSON('http://localhost:3000/admin/products/kotakabjson',  function(err, data) {
+      getJSON('http://localhost:5000/admin/products/kotakabjson',  function(err, data) {
       html_code += '<option value="">Select '+ nameid +'</option>';
         $.each(data, function(key, value){
       
@@ -59,4 +59,6 @@ $(function() {
           }
   });
   //--------end kota
+  
 });
+
