@@ -172,6 +172,8 @@ const searchs = require("./routes/search.js");
 const adminaccounts = require("./routes/accounts.js");
 const adminchats = require("./routes/chats.js");
 const adminfavourites = require("./routes/favourites.js");
+
+
  
 // setup links
 app.use("/admin/pages", adminPages);
@@ -186,6 +188,7 @@ app.use("/cart", cart);
 app.use("/users", users);
 app.use("/search", searchs);
 app.use("/", pages);
+
 
 app.listen(PORT, function() {
   console.log("Server running on port " + PORT);

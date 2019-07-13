@@ -11,6 +11,28 @@ var User = require("../models/user");
 var Token = require("../models/token");
 var Configure = require("../config/config")
 
+
+/*
+ * GET register
+ */
+router.get("/kebijakanprivasi", function(req, res) {
+  res.render("kebijakanprivasi", {
+    title: "Kebijakan Privasi"
+  });
+});
+
+router.get("/pusatbantuan", function(req, res) {
+  res.render("pusatbantuan", {
+    title: "Pusat Bantuan"
+  });
+});
+
+router.get("/syaratketentuan", function(req, res) {
+  res.render("syaratketentuan", {
+    title: "Syarat Ketentuan"
+  });
+});
+
 /*
  * GET register
  */
